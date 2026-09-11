@@ -7,61 +7,92 @@ import { CreativeSection } from './components/CreativeSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { AnimatedBackground } from './components/AnimatedBackground';
 import { useGsapAnimations } from './hooks/useGsapAnimations';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [currentTheme, setCurrentTheme] = useState<string>('theme-1');
 
   // Activate GSAP Timeline & ScrollTrigger Animations
   useGsapAnimations();
 
-  // Trending Smooth Motion Scroll Progress Indicator (60-120fps GPU accelerated)
+  // Scroll tracking for progress indicator
   const { scrollYProgress } = useScroll();
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
 
+  /* =========================================================================
+     4-THEME SECTION CONTROLLER (Zero Jank / 120 FPS Native Performance)
+     Theme 1: Light Alabaster (Hero)
+     Theme 2: Deep Navy Sapphire (Projects / Tanabrew)
+     Theme 3: Deep Cyber Pine (Skills & Creative Media / CapCut)
+     Theme 4: Midnight Obsidian (About, Contact & Footer)
+     ========================================================================= */
   useEffect(() => {
-    const sections = ['hero', 'projects', 'skills', 'creative', 'about', 'contact'];
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: '-20% 0px -40% 0px',
-        threshold: 0.1,
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const trigger = scrollY + windowHeight * 0.35;
+
+      const heroEl = document.getElementById('hero');
+      const projectsEl = document.getElementById('projects');
+      const skillsEl = document.getElementById('skills');
+      const creativeEl = document.getElementById('creative');
+      const aboutEl = document.getElementById('about');
+      const contactEl = document.getElementById('contact');
+
+      if (contactEl && trigger >= contactEl.offsetTop) {
+        setCurrentTheme('theme-4');
+        setActiveSection('contact');
+      } else if (aboutEl && trigger >= aboutEl.offsetTop) {
+        setCurrentTheme('theme-4');
+        setActiveSection('about');
+      } else if (creativeEl && trigger >= creativeEl.offsetTop) {
+        setCurrentTheme('theme-3');
+        setActiveSection('creative');
+      } else if (skillsEl && trigger >= skillsEl.offsetTop) {
+        setCurrentTheme('theme-3');
+        setActiveSection('skills');
+      } else if (projectsEl && trigger >= projectsEl.offsetTop) {
+        setCurrentTheme('theme-2');
+        setActiveSection('projects');
+      } else {
+        setCurrentTheme('theme-1');
+        setActiveSection('hero');
       }
-    );
+    };
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0c0d0e] text-[#f4f4f6] flex flex-col font-sans selection:bg-white selection:text-black">
-      {/* Smooth Motion Scroll Progress Indicator */}
+    <div
+      id="app-theme-root"
+      data-theme={currentTheme}
+      className="relative min-h-screen flex flex-col font-sans overflow-x-hidden transition-colors duration-700"
+    >
+      {/* Dynamic Looping Ambient Aura Mesh & Beam */}
+      <AnimatedBackground />
+
+      {/* Scroll Progress Bar at the Top */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-zinc-600 via-white to-zinc-400 origin-left z-[100] pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[var(--theme-accent)] via-[var(--theme-text-primary)] to-[var(--theme-accent)] origin-left z-[100] pointer-events-none"
       />
 
-      {/* Dynamic Floating Navbar */}
+      {/* Floating Apple Glass Navbar */}
       <Navbar activeSection={activeSection} />
 
       {/* Main Content Sections */}
-      <main className="flex-1 w-full">
+      <main className="relative z-10 flex-1 w-full">
         <HeroSection />
         <ProjectsSection />
         <SkillsSection />
@@ -71,7 +102,9 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 };

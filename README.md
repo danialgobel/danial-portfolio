@@ -4,7 +4,7 @@ Personal portfolio website of **Danial Habib Abdillah**, Informatics Engineering
 
 ![Portfolio Preview](/public/images/profile.jpg)
 
-## ⚡ Tech Stack
+## Tech Stack
 
 - **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -12,7 +12,7 @@ Personal portfolio website of **Danial Habib Abdillah**, Informatics Engineering
 - **Animations**: [Motion](https://motion.dev/) (Hardware-accelerated fluid cubic-bezier curves)
 - **Icons**: [Lucide React](https://lucide.dev/)
 
-## 🚀 Featured Projects
+## Featured Projects
 
 - **Tanabrew Platform**: Multi-platform Business & Inventory Management system (Web App, Android, iOS) with realtime cloud database.
 - **Nostra-Caffe**: Contemporary coffee shop and hospitality landing experience.

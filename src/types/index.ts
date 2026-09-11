@@ -1,7 +1,7 @@
 export interface ProjectItem {
   id: string;
   title: string;
-  category: 'Web App' | 'Mobile App' | 'Agency Website' | 'Automation & AI';
+  category: 'Web App' | 'Mobile App' | 'Agency Website' | 'Automation & AI' | 'Creative Web';
   tagline: string;
   description: string;
   detailedCaseStudy?: {

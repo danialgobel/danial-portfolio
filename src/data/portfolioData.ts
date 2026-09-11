@@ -47,6 +47,37 @@ export const PROJECTS_DATA: ProjectItem[] = [
     imageSrc: '/images/tanabrew-preview.png'
   },
   {
+    id: 'satset-web',
+    title: 'Satsetwel',
+    category: 'Creative Web',
+    featured: false,
+    tagline: 'Creative Collective & Cinematic Archive Platform',
+    description: 'Platform arsip digital dan showcase interaktif untuk kolektif kreatif Satsetwell. Menggabungkan visual editorial sinematik, video storytelling, galeri interaktif berbasis scroll, dan integrasi audio ambient.',
+    detailedCaseStudy: {
+      overview: 'Satsetwel dirancang sebagai ruang arsip digital dan rumah kreatif bersama yang memadukan storytelling emosional, kurasi dokumentasi perjalanan, serta arsitektur antarmuka modern yang imersif dan berkarakter kuat.',
+      challenge: 'Menyajikan kurasi dokumentasi foto beresolusi tinggi, video sinematik, dan pemutar audio ambient tanpa membebani performa browser, sekaligus menciptakan estetika visual editorial yang hidup dan responsif.',
+      solution: 'Membangun antarmuka interaktif berbasis React 19, Tailwind CSS v4, dan Framer Motion. Menerapkan intro splash dinamis, scroll-triggered interactive gallery, video modal player, audio player ambient, serta optimasi aset media di edge network.',
+      keyFeatures: [
+        'Cinematic Hero Section dengan Video Background & Typewriter FX',
+        'Scroll-Triggered Archive Gallery & Interactive Lightbox',
+        'Ambient Audio Player & Video Player Modal Terintegrasi',
+        'Squad & Member Interactive Directory',
+        'High Performance Edge Deployment & Instant Caching di Vercel'
+      ],
+      architecture: [
+        'Frontend: React 19, TypeScript, Tailwind CSS v4',
+        'Motion Engine: Framer Motion',
+        'Build Tool: Vite',
+        'Hosting & CDN: Vercel Edge Infrastructure'
+      ]
+    },
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+    statusText: 'Production / Live Website',
+    liveUrl: 'https://satset-web.vercel.app/',
+    imagePlaceholderText: 'Satsetwel Creative Collective & Archive',
+    imageSrc: '/images/satset-web-preview.png'
+  },
+  {
     id: 'lensa-shafa',
     title: 'Lensa Shafa',
     category: 'Agency Website',
@@ -184,5 +215,5 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { platform: 'GitHub', label: 'github.com/danialgobel', href: 'https://github.com/danialgobel', iconName: 'github', isAvailable: true },
   { platform: 'Instagram', label: '@danialgobell', href: 'https://www.instagram.com/danialgobell/', iconName: 'instagram', isAvailable: true },
   { platform: 'TikTok', label: '@danialgobelll', href: 'https://www.tiktok.com/@danialgobelll', iconName: 'tiktok', isAvailable: true },
-  { platform: 'Email', label: 'danialgobel26@gmail.com', href: 'mailto:danialgobel26@gmail.com', iconName: 'mail', isAvailable: true }
+  { platform: 'Google Email', label: 'danialgobel26@gmail.com', href: 'mailto:danialgobel26@gmail.com', iconName: 'gmail', isAvailable: true }
 ];

@@ -156,6 +156,35 @@ export const TechIcon: React.FC<TechIconProps> = ({ name, className = "w-5 h-5",
         </svg>
       );
 
+    case 'gmail':
+    case 'email':
+    case 'mail':
+    case 'googlemail':
+      return (
+        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none">
+          <path d="M2 7.75C2 6.55 3.3 5.85 4.3 6.6L6 7.8V10.75L2 7.75Z" fill="#FBBC04" />
+          <path d="M22 7.75C22 6.55 20.7 5.85 19.7 6.6L18 7.8V10.75L22 7.75Z" fill="#C5221F" />
+          <path d="M18 10.75V5.5C18 4.3 16.7 3.6 15.7 4.35L12 7.7L8.3 4.35C7.3 3.6 6 4.3 6 5.5V10.75L12 15.25L18 10.75Z" fill="#EA4335" />
+          <path d="M2 7.75V18C2 19.1 2.9 20 4 20H6V10.75L2 7.75Z" fill="#4285F4" />
+          <path d="M22 7.75V18C22 19.1 21.1 20 20 20H18V10.75L22 7.75Z" fill="#34A853" />
+        </svg>
+      );
+
+    case 'framermotion':
+    case 'motion':
+      return (
+        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none">
+          <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" fill="#F08" />
+        </svg>
+      );
+
+    case 'vercel':
+      return (
+        <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor">
+          <path d="M12 2L2 20h20L12 2z" />
+        </svg>
+      );
+
     default:
       return (
         <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none" stroke="currentColor" strokeWidth="2">

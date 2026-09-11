@@ -1,67 +1,233 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Liberation Mono', Menlo, Monaco, Consolas, monospace;
+}
 
-  --color-canvas: #0c0d0e;
-  --color-surface: #121316;
-  --color-surface-subtle: #17181c;
-  --color-surface-card: #1a1c21;
-  --color-surface-elevated: #22252c;
+/* ==========================================================================
+   BULLETPROOF 4-THEME DESIGN SYSTEM (Maximum Contrast & Readability)
+   Theme 1: Light Alabaster (Hero)
+   Theme 2: Deep Navy Sapphire (Projects / Tanabrew)
+   Theme 3: Deep Cyber Pine (Architecture & Creative Media / CapCut)
+   Theme 4: Midnight Obsidian (About, Contact & Footer)
+   ========================================================================== */
+
+:root,
+[data-theme="theme-1"] {
+  --theme-bg: #F7FAF8;
+  --theme-text-primary: #0F1713;
+  --theme-text-secondary: #2D3B34;
+  --theme-text-muted: #52635A;
+  --theme-border-hairline: rgba(15, 23, 19, 0.10);
+  --theme-border-subtle: rgba(15, 23, 19, 0.16);
   
-  --color-border-hairline: rgba(255, 255, 255, 0.07);
-  --color-border-subtle: rgba(255, 255, 255, 0.12);
-  --color-border-strong: rgba(255, 255, 255, 0.24);
+  --apple-glass-bg: rgba(255, 255, 255, 0.85);
+  --apple-glass-bg-subtle: rgba(255, 255, 255, 0.65);
+  --apple-glass-border: rgba(15, 23, 19, 0.08);
+  --apple-glass-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.07);
+  --apple-glass-inner-light: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  
+  --theme-accent: #1B5E3C;
+  --theme-accent-light: #C8EBD5;
+  --theme-badge-bg: #E1EFE7;
+  --theme-badge-text: #0F1713;
+  --theme-pill-bg: rgba(255, 255, 255, 0.90);
+  --theme-pill-border: rgba(15, 23, 19, 0.12);
+  
+  --theme-btn-primary-bg: #0F1713;
+  --theme-btn-primary-text: #FFFFFF;
+  --theme-btn-secondary-bg: rgba(255, 255, 255, 0.90);
+  --theme-btn-secondary-text: #0F1713;
+  --theme-btn-secondary-border: rgba(15, 23, 19, 0.14);
+}
 
-  --color-text-primary: #f5f5f7;
-  --color-text-secondary: #a3a3ad;
-  --color-text-muted: #71717e;
-  --color-accent: #ffffff;
+[data-theme="theme-2"] {
+  --theme-bg: #0A1128;
+  --theme-text-primary: #FFFFFF;
+  --theme-text-secondary: #E2E8F0;
+  --theme-text-muted: #94A3B8;
+  --theme-border-hairline: rgba(255, 255, 255, 0.12);
+  --theme-border-subtle: rgba(255, 255, 255, 0.20);
+  
+  --apple-glass-bg: rgba(16, 26, 54, 0.78);
+  --apple-glass-bg-subtle: rgba(16, 26, 54, 0.55);
+  --apple-glass-border: rgba(255, 255, 255, 0.16);
+  --apple-glass-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.55);
+  --apple-glass-inner-light: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  
+  --theme-accent: #38BDF8;
+  --theme-accent-light: rgba(56, 189, 248, 0.20);
+  --theme-badge-bg: rgba(56, 189, 248, 0.20);
+  --theme-badge-text: #FFFFFF;
+  --theme-pill-bg: rgba(255, 255, 255, 0.10);
+  --theme-pill-border: rgba(255, 255, 255, 0.18);
+  
+  --theme-btn-primary-bg: #38BDF8;
+  --theme-btn-primary-text: #0A1128;
+  --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
+  --theme-btn-secondary-text: #FFFFFF;
+  --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
+}
+
+[data-theme="theme-3"] {
+  --theme-bg: #071E15;
+  --theme-text-primary: #FFFFFF;
+  --theme-text-secondary: #E6F4ED;
+  --theme-text-muted: #86A897;
+  --theme-border-hairline: rgba(255, 255, 255, 0.12);
+  --theme-border-subtle: rgba(255, 255, 255, 0.20);
+  
+  --apple-glass-bg: rgba(14, 40, 29, 0.78);
+  --apple-glass-bg-subtle: rgba(14, 40, 29, 0.55);
+  --apple-glass-border: rgba(255, 255, 255, 0.16);
+  --apple-glass-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.55);
+  --apple-glass-inner-light: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  
+  --theme-accent: #4ADE80;
+  --theme-accent-light: rgba(74, 222, 128, 0.20);
+  --theme-badge-bg: rgba(74, 222, 128, 0.20);
+  --theme-badge-text: #FFFFFF;
+  --theme-pill-bg: rgba(255, 255, 255, 0.10);
+  --theme-pill-border: rgba(255, 255, 255, 0.18);
+  
+  --theme-btn-primary-bg: #4ADE80;
+  --theme-btn-primary-text: #071E15;
+  --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
+  --theme-btn-secondary-text: #FFFFFF;
+  --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
+}
+
+[data-theme="theme-4"] {
+  --theme-bg: #050505;
+  --theme-text-primary: #FFFFFF;
+  --theme-text-secondary: #E5E7EB;
+  --theme-text-muted: #9CA3AF;
+  --theme-border-hairline: rgba(255, 255, 255, 0.10);
+  --theme-border-subtle: rgba(255, 255, 255, 0.18);
+  
+  --apple-glass-bg: rgba(20, 20, 22, 0.82);
+  --apple-glass-bg-subtle: rgba(20, 20, 22, 0.58);
+  --apple-glass-border: rgba(255, 255, 255, 0.16);
+  --apple-glass-shadow: 0 20px 48px -4px rgba(0, 0, 0, 0.70);
+  --apple-glass-inner-light: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  
+  --theme-accent: #34D399;
+  --theme-accent-light: rgba(52, 211, 153, 0.20);
+  --theme-badge-bg: rgba(52, 211, 153, 0.20);
+  --theme-badge-text: #FFFFFF;
+  --theme-pill-bg: rgba(255, 255, 255, 0.10);
+  --theme-pill-border: rgba(255, 255, 255, 0.18);
+  
+  --theme-btn-primary-bg: #FFFFFF;
+  --theme-btn-primary-text: #050505;
+  --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
+  --theme-btn-secondary-text: #FFFFFF;
+  --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
   }
   
-  body {
-    background-color: #0c0d0e;
-    color: #f5f5f7;
+  body,
+  #app-theme-root {
+    background-color: var(--theme-bg);
+    color: var(--theme-text-primary);
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
     overflow-x: hidden;
+    transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background-color: rgba(255, 255, 255, 0.95);
-    color: #0c0d0e;
+    background-color: var(--theme-accent);
+    color: #FFFFFF;
   }
 }
 
-/* Custom subtle noise / mesh background texture */
-.bg-grid-pattern {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+/* ==========================================================================
+   APPLE GLASS AESTHETICS (VisionOS / macOS Frosted Glass)
+   Smooth hardware-accelerated transitions
+   ========================================================================== */
+
+.apple-glass {
+  background: var(--apple-glass-bg);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--apple-glass-border);
+  box-shadow: var(--apple-glass-shadow), var(--apple-glass-inner-light);
+  color: var(--theme-text-primary);
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hairline-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.apple-glass-subtle {
+  background: var(--apple-glass-bg-subtle);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--apple-glass-border);
+  box-shadow: var(--apple-glass-shadow);
+  color: var(--theme-text-primary);
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hairline-border-hover:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+.apple-glass-pill {
+  background: var(--theme-pill-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--theme-pill-border);
+  color: var(--theme-text-primary);
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Glassmorphism token matching Apple / Google Stitch editorial */
-.glass-panel {
-  background: rgba(18, 19, 22, 0.75);
+.apple-glass-button-primary {
+  background: var(--theme-btn-primary-bg);
+  color: var(--theme-btn-primary-text);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.apple-glass-button-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.apple-glass-button-secondary {
+  background: var(--theme-btn-secondary-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--theme-btn-secondary-border);
+  color: var(--theme-btn-secondary-text);
+  box-shadow: var(--apple-glass-shadow);
+  transition: all 0.3s ease;
+}
+
+.apple-glass-button-secondary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Background blueprint grid */
+.bg-terranova-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(120, 150, 130, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 150, 130, 0.08) 1px, transparent 1px);
 }
 
 /* Custom sleek scrollbar */
@@ -70,19 +236,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0d0e;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(120, 150, 130, 0.25);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.28);
-}
-
-/* Base section smooth rendering */
-.reveal {
-  opacity: 1;
+  background: rgba(120, 150, 130, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
