@@ -9,6 +9,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { useGsapAnimations } from './hooks/useGsapAnimations';
+import { initDiscordTracker } from './services/discordTracker';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 export const App: React.FC = () => {
@@ -17,6 +18,11 @@ export const App: React.FC = () => {
 
   // Activate GSAP Timeline & ScrollTrigger Animations
   useGsapAnimations();
+
+  // Initialize Discord Webhook Visitor & Interaction Tracker
+  useEffect(() => {
+    initDiscordTracker();
+  }, []);
 
   // Scroll tracking for progress indicator
   const { scrollYProgress } = useScroll();
