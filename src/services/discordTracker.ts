@@ -88,14 +88,33 @@ class WebhookQueue {
       }
 
       try {
-        await fetch(DISCORD_WEBHOOK_URL, {
+        // 1. Try sending via /api/track (Serverless Edge Geolocation & Bot Filter)
+        const res = await fetch('/api/track', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ type: payload.type || 'INTERACTION', payload })
         });
+
+        if (!res.ok) {
+          // 2. Fallback to direct webhook if running on static host/dev without API
+          await fetch(DISCORD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
         this.lastSendTime = Date.now();
       } catch (err) {
-        // Fail-safe: Never block UI or log fatal errors if adblocker intercepts
+        // Fail-safe: Try direct fallback
+        try {
+          await fetch(DISCORD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch {
+          // Never block UI
+        }
       }
     }
 
