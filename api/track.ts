@@ -61,6 +61,13 @@ export default async function handler(req: any, res: any) {
           : '👤 `PENGUNJUNG ASLI (HUMAN)` (Orang yang sedang aktif membuka portofolio)',
         inline: false
       });
+
+      // Inject Direct Link to Clarity Screen Recordings Dashboard
+      fields.push({
+        name: '🎥 Rekaman Layar Live (Microsoft Clarity)',
+        value: '[▶️ Tonton Rekaman Layar Pengunjung di Clarity](https://clarity.microsoft.com/projects/view/yzn3t7oord/recordings)',
+        inline: false
+      });
     }
 
     // 3. Forward securely to Discord Webhook from server
