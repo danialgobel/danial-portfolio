@@ -1,10 +1,40 @@
-// Vercel Serverless Function: Edge Geolocation & Discord Security Filter
-// Automatically parses visitor IP, City, Region, and filters out automated bots
+// In-memory IP rate limiter (Sliding window: max 25 req/minute per IP)
+const ipRateLimits = new Map<string, { count: number; resetAt: number }>();
 
 export default async function handler(req: any, res: any) {
   // Only accept POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // 1. Origin & Referer Verification to block third-party cross-site abuse
+  const origin = (req.headers['origin'] || req.headers['referer'] || '').toLowerCase();
+  const host = (req.headers['host'] || '').toLowerCase();
+  if (origin) {
+    const isAllowed =
+      origin.includes('vercel.app') ||
+      origin.includes('danialhabib.dev') ||
+      origin.includes('localhost') ||
+      origin.includes('127.0.0.1') ||
+      host.includes('vercel.app');
+    if (!isAllowed) {
+      return res.status(403).json({ error: 'Forbidden origin' });
+    }
+  }
+
+  // 2. Extract Client IP and Apply Rate Limiting
+  const forwarded = req.headers['x-forwarded-for'];
+  const clientIp = (forwarded ? forwarded.split(',')[0] : req.socket?.remoteAddress || '127.0.0.1').trim();
+
+  const now = Date.now();
+  const limit = ipRateLimits.get(clientIp);
+  if (limit && now < limit.resetAt) {
+    if (limit.count >= 25) {
+      return res.status(429).json({ error: 'Rate limit exceeded. Please wait a moment.' });
+    }
+    limit.count++;
+  } else {
+    ipRateLimits.set(clientIp, { count: 1, resetAt: now + 60000 });
   }
 
   try {
@@ -23,13 +53,11 @@ export default async function handler(req: any, res: any) {
 
     const { type, payload } = req.body || {};
 
-    // 1. Read Edge Geolocation from Vercel native headers
+    // 3. Read Edge Geolocation from Vercel native headers
     const rawCity = req.headers['x-vercel-ip-city'];
     const city = rawCity ? decodeURIComponent(rawCity) : null;
     const region = req.headers['x-vercel-ip-country-region'] || null;
     const country = req.headers['x-vercel-ip-country'] || 'ID';
-    const forwarded = req.headers['x-forwarded-for'];
-    const clientIp = (forwarded ? forwarded.split(',')[0] : req.socket?.remoteAddress || '127.0.0.1').trim();
 
     // Construct readable location
     let locationText = 'Indonesia (Lokal / Terproteksi)';
