@@ -69,7 +69,53 @@ export default async function handler(req: any, res: any) {
       locationText = `Indonesia (IP: ${clientIp})`;
     }
 
-    // 2. Enhance Embed Payload with Accurate Geolocation & Visitor Type
+    // 4. Handle Direct Message Submission from Contact Section
+    if (type === 'MESSAGE') {
+      const { senderName, senderContact, senderMessage } = req.body || {};
+      if (!senderName || !senderContact || !senderMessage) {
+        return res.status(400).json({ error: 'Form data incomplete' });
+      }
+
+      // Smart contact formatter (click-to-chat WhatsApp link or mailto)
+      const cleanPhone = String(senderContact).replace(/\D/g, '');
+      let contactDisplay = String(senderContact);
+      if (cleanPhone.length >= 9) {
+        const intlPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+        contactDisplay = `[${senderContact} (Klik untuk Chat WA)](https://wa.me/${intlPhone}?text=Halo%20${encodeURIComponent(senderName)},%20terima%20kasih%20telah%20menghubungi%20saya%20lewat%20portofolio)`;
+      } else if (String(senderContact).includes('@')) {
+        contactDisplay = `[${senderContact}](mailto:${senderContact})`;
+      }
+
+      const messageEmbed = {
+        title: '📩 PESAN BARU DARI PENGUNJUNG PORTOFOLIO!',
+        description: `Seseorang baru saja mengirimkan pesan / tawaran proyek melalui formulir kontak web portofoliomu:`,
+        color: 0x6366f1, // Indigo
+        fields: [
+          { name: '👤 Nama Pengirim', value: `**${senderName}**`, inline: true },
+          { name: '📞 Kontak Balasan', value: contactDisplay, inline: true },
+          { name: '📍 Lokasi Pengirim', value: `📍 **${locationText}**`, inline: false },
+          { name: '💬 Isi Pesan / Proyek', value: `>>> ${senderMessage}`, inline: false },
+          { name: '🎥 Rekaman Layar (Microsoft Clarity)', value: '[▶️ Tonton Rekaman Pengunjung di Clarity](https://clarity.microsoft.com/projects/view/yzn3t7oord/recordings)', inline: false }
+        ],
+        footer: { text: 'DanialGobel Portfolio • Direct Inbox Alert' },
+        timestamp: new Date().toISOString()
+      };
+
+      const discordRes = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ embeds: [messageEmbed] })
+      });
+
+      if (!discordRes.ok) {
+        const errText = await discordRes.text();
+        return res.status(discordRes.status).json({ error: 'Discord webhook error', detail: errText });
+      }
+
+      return res.status(200).json({ status: 'success', message: 'Pesan berhasil terkirim' });
+    }
+
+    // 5. Enhance Embed Payload for Regular Tracking with Accurate Geolocation & Visitor Type
     if (payload?.embeds?.[0]?.fields) {
       const fields = payload.embeds[0].fields;
 

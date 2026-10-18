@@ -11,6 +11,7 @@ import { AnimatedBackground } from './components/AnimatedBackground';
 import { useGsapAnimations } from './hooks/useGsapAnimations';
 import { initDiscordTracker } from './services/discordTracker';
 import { motion, useScroll, useSpring } from 'motion/react';
+import { ToastProvider } from './components/Toast';
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('hero');
@@ -19,9 +20,21 @@ export const App: React.FC = () => {
   // Activate GSAP Timeline & ScrollTrigger Animations
   useGsapAnimations();
 
-  // Initialize Discord Webhook Visitor & Interaction Tracker
+  // Initialize Discord Tracker & Card Spotlight Glow Tracker
   useEffect(() => {
     initDiscordTracker();
+
+    const handlePointerMove = (e: PointerEvent) => {
+      const card = (e.target as HTMLElement)?.closest?.('.spotlight-card') as HTMLElement | null;
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      }
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    return () => window.removeEventListener('pointermove', handlePointerMove);
   }, []);
 
   // Scroll tracking for progress indicator
@@ -90,38 +103,40 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div
-      id="app-theme-root"
-      data-theme={currentTheme}
-      className="relative min-h-screen flex flex-col font-sans overflow-x-hidden transition-colors duration-700"
-    >
-      {/* Dynamic Looping Ambient Aura Mesh & Beam */}
-      <AnimatedBackground />
+    <ToastProvider>
+      <div
+        id="app-theme-root"
+        data-theme={currentTheme}
+        className="relative min-h-screen flex flex-col font-sans overflow-x-hidden transition-colors duration-700"
+      >
+        {/* Dynamic Looping Ambient Aura Mesh & Beam */}
+        <AnimatedBackground />
 
-      {/* Scroll Progress Bar at the Top */}
-      <motion.div
-        style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[var(--theme-accent)] via-[var(--theme-text-primary)] to-[var(--theme-accent)] origin-left z-[100] pointer-events-none"
-      />
+        {/* Scroll Progress Bar at the Top */}
+        <motion.div
+          style={{ scaleX }}
+          className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[var(--theme-accent)] via-[var(--theme-text-primary)] to-[var(--theme-accent)] origin-left z-[100] pointer-events-none"
+        />
 
-      {/* Floating Apple Glass Navbar */}
-      <Navbar activeSection={activeSection} />
+        {/* Floating Apple Glass Navbar */}
+        <Navbar activeSection={activeSection} />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10 flex-1 w-full">
-        <HeroSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <CreativeSection />
-        <AboutSection />
-        <ContactSection />
-      </main>
+        {/* Main Content Sections */}
+        <main className="relative z-10 flex-1 w-full">
+          <HeroSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <CreativeSection />
+          <AboutSection />
+          <ContactSection />
+        </main>
 
-      {/* Footer */}
-      <div className="relative z-10">
-        <Footer />
+        {/* Footer */}
+        <div className="relative z-10">
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ToastProvider>
   );
 };
 

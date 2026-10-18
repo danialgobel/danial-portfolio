@@ -8,9 +8,27 @@ import { sectionHeaderVariants, featuredCardVariants, staggeredCardVariants, SMO
 
 export const ProjectsSection: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'apps' | 'creative' | 'lab'>('all');
+
+  const categories = [
+    { id: 'all' as const, label: 'Semua Karya', count: PROJECTS_DATA.length },
+    { id: 'apps' as const, label: 'Mobile & Web Apps', count: 2 },
+    { id: 'creative' as const, label: 'Creative & Media Web', count: 2 },
+    { id: 'lab' as const, label: 'Otomasi & Lab', count: 1 }
+  ];
 
   const tanabrew = PROJECTS_DATA.find((p) => p.id === 'tanabrew')!;
-  const otherProjects = PROJECTS_DATA.filter((p) => p.id !== 'tanabrew');
+
+  const filteredProjects = PROJECTS_DATA.filter((p) => {
+    if (selectedCategory === 'all') return true;
+    if (selectedCategory === 'apps') return p.id === 'tanabrew' || p.id === 'nostra-caffe';
+    if (selectedCategory === 'creative') return p.id === 'satset-web' || p.id === 'lensa-shafa';
+    if (selectedCategory === 'lab') return p.id === 'automation-creative-lab';
+    return true;
+  });
+
+  const showFeatured = (selectedCategory === 'all' || selectedCategory === 'apps') && filteredProjects.some((p) => p.id === 'tanabrew');
+  const gridProjects = filteredProjects.filter((p) => (showFeatured ? p.id !== 'tanabrew' : true));
 
   return (
     <section id="projects" className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-[var(--theme-border-hairline)]">
@@ -38,14 +56,43 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </motion.div>
 
+        {/* Filter Category Pills */}
+        <div className="flex flex-wrap items-center gap-2 pt-0.5 pb-1">
+          {categories.map((cat) => {
+            const isActive = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-xl font-mono text-xs transition-all flex items-center gap-2 cursor-pointer ${
+                  isActive
+                    ? 'apple-glass-button-primary font-semibold shadow-md'
+                    : 'apple-glass-pill text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`px-1.5 py-0.2 rounded-md text-[10px] font-bold ${
+                    isActive ? 'bg-white/25 text-white' : 'bg-black/10 text-[var(--theme-text-muted)]'
+                  }`}
+                >
+                  {cat.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* FEATURED PROJECT: TANABREW (Apple Glass Edition) */}
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={featuredCardVariants}
-          className="relative rounded-3xl apple-glass p-5 sm:p-8 shadow-2xl overflow-hidden group"
-        >
+        {showFeatured && (
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={featuredCardVariants}
+            className="relative rounded-3xl apple-glass spotlight-card p-5 sm:p-8 shadow-2xl overflow-hidden group"
+          >
           {/* Top Spec Bar */}
           <div className="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-[var(--theme-border-hairline)] font-mono text-xs">
             <div className="flex items-center gap-2">
@@ -208,10 +255,11 @@ export const ProjectsSection: React.FC = () => {
 
           </div>
         </motion.div>
+        )}
 
-        {/* OTHER PROJECTS GRID (Apple Glass Cards) */}
+        {/* PROJECTS GRID (Apple Glass Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {otherProjects.map((project, idx) => (
+          {gridProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               custom={idx}
@@ -220,7 +268,7 @@ export const ProjectsSection: React.FC = () => {
               viewport={{ once: true, amount: 0.12 }}
               variants={staggeredCardVariants}
               whileHover={{ y: -3 }}
-              className="rounded-2xl apple-glass p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300 group"
+              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300 group"
             >
               <div className="flex flex-col gap-3">
                 

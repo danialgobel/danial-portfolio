@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { ArrowUpRight, Download, Code2, Smartphone, Terminal, Film, MapPin } from 'lucide-react';
 import { TechIcon } from './TechIcons';
 import { motion } from 'motion/react';
@@ -12,6 +12,25 @@ const Lanyard = React.lazy(() =>
 
 export const HeroSection: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [localTime, setLocalTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const timeStr = new Intl.DateTimeFormat('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(new Date());
+        setLocalTime(timeStr);
+      } catch {
+        setLocalTime('WIB');
+      }
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 10000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section
@@ -28,7 +47,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: SMOOTH_EASE }}
-          className="apple-glass rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden"
+          className="apple-glass spotlight-card rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden"
         >
           {/* Subtle top specular reflection line */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -69,9 +88,23 @@ export const HeroSection: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-[var(--theme-text-muted)] pt-0.5">
-                <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                <span>Yogyakarta, Indonesia &bull; Universitas Ahmad Dahlan (UAD)</span>
+              {/* Dynamic Live Status & Location Pill */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <div className="apple-glass-pill inline-flex items-center gap-2 px-3 py-1 rounded-xl text-[11px] font-mono">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <span className="text-[var(--theme-text-primary)] font-medium">AVAILABLE FOR PROJECTS</span>
+                  {localTime && (
+                    <>
+                      <span className="text-[var(--theme-text-muted)]">&bull;</span>
+                      <span className="text-[var(--theme-accent)] font-semibold">{localTime} WIB</span>
+                    </>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-text-muted)]">
+                  <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <span>Yogyakarta, ID &bull; UAD</span>
+                </div>
               </div>
             </div>
 

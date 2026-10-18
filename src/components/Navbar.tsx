@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ResumeModal } from './ResumeModal';
+import { CommandPalette } from './CommandPalette';
 
 interface NavbarProps {
   activeSection: string;
@@ -11,6 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Global Ctrl+K / Cmd+K listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const navLinks = [
@@ -110,6 +124,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <div className="hidden sm:flex items-center gap-2.5">
                 <button
                   type="button"
+                  onClick={() => setIsCommandPaletteOpen(true)}
+                  className="apple-glass-subtle inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1.5 rounded-xl text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-all cursor-pointer"
+                  aria-label="Buka Command Palette (Ctrl+K)"
+                  title="Buka Command Palette (Ctrl+K)"
+                >
+                  <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[9px] font-mono border border-black/10">
+                    Ctrl K
+                  </kbd>
+                </button>
+
+                <button
+                  type="button"
                   onClick={() => setIsResumeOpen(true)}
                   className="apple-glass-subtle inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider px-3.5 py-1.5 rounded-xl text-[var(--theme-text-primary)] transition-all font-medium cursor-pointer"
                 >
@@ -167,6 +194,21 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     type="button"
                     onClick={() => {
                       setMobileMenuOpen(false);
+                      setIsCommandPaletteOpen(true);
+                    }}
+                    className="apple-glass-subtle flex items-center justify-between text-xs font-mono py-2 px-4 rounded-xl text-[var(--theme-text-primary)] font-medium text-left cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                      <span>Cari / Command Palette</span>
+                    </div>
+                    <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[9px] font-mono">Ctrl K</kbd>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
                       setIsResumeOpen(true);
                     }}
                     className="apple-glass-subtle text-center text-xs font-mono uppercase tracking-wider py-2 px-4 rounded-xl font-medium cursor-pointer flex items-center justify-center gap-1.5"
@@ -192,6 +234,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
     {/* Resume Modal */}
     <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+
+    {/* Command Palette (Ctrl+K) */}
+    <CommandPalette
+      isOpen={isCommandPaletteOpen}
+      onClose={() => setIsCommandPaletteOpen(false)}
+      onOpenResume={() => setIsResumeOpen(true)}
+    />
   </>
   );
 };

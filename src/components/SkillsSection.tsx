@@ -43,7 +43,7 @@ export const SkillsSection: React.FC = () => {
               viewport={{ once: true, amount: 0.15 }}
               variants={staggeredCardVariants}
               whileHover={{ y: -3 }}
-              className="rounded-2xl apple-glass p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300"
+              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300"
             >
               <div className="flex flex-col gap-4">
                 {/* Header Category */}

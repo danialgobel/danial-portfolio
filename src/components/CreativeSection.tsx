@@ -38,7 +38,7 @@ export const CreativeSection: React.FC = () => {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.12 }}
           variants={featuredCardVariants}
-          className="rounded-3xl apple-glass p-5 sm:p-8 shadow-2xl flex flex-col gap-5 sm:gap-6"
+          className="rounded-3xl apple-glass spotlight-card p-5 sm:p-8 shadow-2xl flex flex-col gap-5 sm:gap-6"
         >
           
           {/* 1. TOP: CapCut Desktop Workspace Preview */}

@@ -1,10 +1,19 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Share2 } from 'lucide-react';
 import { TechIcon } from './TechIcons';
+import { useToast } from './Toast';
 
 export const Footer: React.FC = () => {
+  const { showToast } = useToast();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCopyLink = () => {
+    const url = window.location.origin || 'https://danial-portfolio-inky.vercel.app';
+    navigator.clipboard.writeText(url);
+    showToast('Tautan portofolio berhasil disalin!');
   };
 
   return (
@@ -61,15 +70,28 @@ export const Footer: React.FC = () => {
             REACT 19 &bull; TS &bull; TAILWIND &bull; MOTION
           </span>
 
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="apple-glass-button-secondary p-2.5 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-md"
-            aria-label="Kembali ke atas halaman"
-          >
-            <span className="text-[10px] font-mono uppercase">Top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="apple-glass-button-secondary p-2.5 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-md"
+              aria-label="Salin tautan web portofolio"
+              title="Salin Tautan Portofolio"
+            >
+              <Share2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+              <span className="text-[10px] font-mono uppercase hidden sm:inline">Bagikan</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="apple-glass-button-secondary p-2.5 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-md"
+              aria-label="Kembali ke atas halaman"
+            >
+              <span className="text-[10px] font-mono uppercase">Top</span>
+              <ArrowUp className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+            </button>
+          </div>
         </div>
 
       </div>
