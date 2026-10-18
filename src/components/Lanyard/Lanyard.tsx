@@ -191,17 +191,17 @@ function createCardCanvases(img: HTMLImageElement | null): {
     fCtx.fillText('Danial Habib', 80, plateY + 105);
     fCtx.fillText('Abdillah', 80, plateY + 185);
 
-    // Right ID code: "ID 00110"
+    // Right code: "UAD 2026"
     fCtx.fillStyle = '#475569';
     fCtx.font = 'bold 34px monospace';
     fCtx.textAlign = 'right';
-    fCtx.fillText('ID 00110', W - 80, plateY + 140);
+    fCtx.fillText('UAD 2026', W - 80, plateY + 140);
 
-    // Member Position Label
+    // Specialization Label
     fCtx.fillStyle = '#94A3B8';
     fCtx.font = '700 20px system-ui, -apple-system, sans-serif';
     fCtx.textAlign = 'left';
-    fCtx.fillText('MEMBER POSITION', 80, plateY + 250);
+    fCtx.fillText('SPECIALIZATION & ROLES', 80, plateY + 250);
 
     // Roles (3 Lines)
     fCtx.fillStyle = '#334155';
@@ -268,7 +268,7 @@ function createCardCanvases(img: HTMLImageElement | null): {
     bCtx.font = 'bold 24px monospace';
     bCtx.textAlign = 'center';
     bCtx.letterSpacing = '4px';
-    bCtx.fillText('OFFICIAL DIGITAL PASS // 2026', W / 2, 210);
+    bCtx.fillText('CREATIVE TECHNOLOGIST PASS', W / 2, 210);
 
     // Large DanialGobel Monogram Logo
     const logoCenterY = 470;
@@ -311,7 +311,7 @@ function createCardCanvases(img: HTMLImageElement | null): {
     bCtx.fillStyle = '#334155';
     bCtx.font = 'bold 30px monospace';
     bCtx.textAlign = 'center';
-    bCtx.fillText('* ID: 00110-DH-GOBEL-2026 *', W / 2, barY + barH + 50);
+    bCtx.fillText('* DANIAL HABIB ABDILLAH *', W / 2, barY + barH + 50);
 
     // Outer subtle card border
     bCtx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
@@ -384,11 +384,6 @@ export function preloadLanyardAssets(src: string = '/images/profile.jpg'): Promi
   });
 
   return assetLoadPromise;
-}
-
-// Eager execution when module is parsed by Vite
-if (typeof window !== 'undefined') {
-  preloadLanyardAssets('/images/profile.jpg');
 }
 
 export const Lanyard: React.FC<LanyardProps> = ({

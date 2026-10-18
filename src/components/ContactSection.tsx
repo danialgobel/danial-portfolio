@@ -78,7 +78,7 @@ export const ContactSection: React.FC = () => {
                 <motion.a
                   whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  href={`mailto:${email}?subject=Kolaborasi%20Proyek%20Digital%20—%20Danial%20Habib`}
+                  href={`mailto:${email}?subject=Kolaborasi%20Proyek%20Digital%20-%20Danial%20Habib`}
                   className="apple-glass-button-primary px-5 py-2.5 rounded-xl font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-2 shadow-lg"
                 >
                   <Send className="w-3.5 h-3.5 text-[var(--theme-accent)]" />

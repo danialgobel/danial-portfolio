@@ -1,6 +1,6 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { GraduationCap, MapPin, Sparkles, Terminal, Code2 } from 'lucide-react';
+import { GraduationCap, MapPin, Film, Terminal, Code2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { sectionHeaderVariants, staggeredCardVariants } from '../utils/animationVariants';
 
@@ -80,7 +80,7 @@ export const AboutSection: React.FC = () => {
               className="p-6 sm:p-8 rounded-3xl apple-glass-subtle shadow-xl flex flex-col gap-3"
             >
               <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)] font-semibold">
-                PRINSIP PENGEMBANGAN // CORE DOGMA
+                PRINSIP PENGEMBANGAN // FILOSOFI KARYA
               </span>
               <blockquote className="text-sm sm:text-base text-[var(--theme-text-primary)] font-display font-medium leading-relaxed italic">
                 "{PERSONAL_INFO.aboutQuote}"
@@ -104,7 +104,7 @@ export const AboutSection: React.FC = () => {
             >
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
                 <Code2 className="w-4 h-4 text-[var(--theme-accent)]" />
-                <span>Full Lifecycle Engineering</span>
+                <span>Web Platform Engineering</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">
                 Membangun arsitektur frontend teruji dengan React 19, TypeScript, dan Tailwind CSS, terhubung langsung ke Firebase Firestore dengan latensi rendah.
@@ -123,7 +123,7 @@ export const AboutSection: React.FC = () => {
             >
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
                 <Terminal className="w-4 h-4 text-[var(--theme-accent)]" />
-                <span>Multi-Device Ecosystem</span>
+                <span>Mobile Client Integration</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">
                 Menghubungkan aplikasi web desktop manajemen dengan klien mobile iOS dan Android dalam basis data cloud terpusat.
@@ -141,8 +141,8 @@ export const AboutSection: React.FC = () => {
               className="p-5 rounded-2xl apple-glass shadow-lg flex flex-col gap-2"
             >
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
-                <Sparkles className="w-4 h-4 text-[var(--theme-accent)]" />
-                <span>Visual Rhythm &amp; Polish</span>
+                <Film className="w-4 h-4 text-[var(--theme-accent)]" />
+                <span>Creative Motion &amp; Video</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">
                 Memadukan motion micro-interactions presisi di web serta ritme pacing video sinematik melalui CapCut Desktop.

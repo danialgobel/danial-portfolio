@@ -121,8 +121,9 @@ export const ProjectsSection: React.FC = () => {
                   onClick={() => setSelectedProject(tanabrew)}
                 >
                   <img
-                    src="/images/tanabrew-preview.png"
+                    src="/images/tanabrew-preview.webp"
                     alt="Tanabrew Dashboard System Preview"
+                    loading="lazy"
                     className="w-full h-auto max-h-[380px] object-cover object-top filter brightness-95 group-hover/preview:brightness-100 transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-3 sm:p-4 opacity-0 group-hover/preview:opacity-100 transition-opacity">
@@ -256,6 +257,7 @@ export const ProjectsSection: React.FC = () => {
                       <img
                         src={project.imageSrc}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 group-hover/img:scale-104 transition-all duration-300"
                       />
                       <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-md bg-black/80 backdrop-blur-md text-white font-mono text-[9px] flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity border border-white/20">
@@ -271,6 +273,7 @@ export const ProjectsSection: React.FC = () => {
                       <img
                         src={project.imageSrc}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 group-hover/img:scale-104 transition-all duration-300"
                       />
                     </div>

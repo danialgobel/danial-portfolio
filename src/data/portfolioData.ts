@@ -44,7 +44,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     isPrivateClient: true,
     instagramUrl: 'https://www.instagram.com/tanabrew.tm/',
     imagePlaceholderText: 'Tanabrew Business Ecosystem (Web, Android & iOS)',
-    imageSrc: '/images/tanabrew-preview.png'
+    imageSrc: '/images/tanabrew-preview.webp'
   },
   {
     id: 'satset-web',
@@ -75,7 +75,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     statusText: 'Production / Live Website',
     liveUrl: 'https://satset-web.vercel.app/',
     imagePlaceholderText: 'Satsetwel Creative Collective & Archive',
-    imageSrc: '/images/satset-web-preview.png'
+    imageSrc: '/images/satset-web-preview.webp'
   },
   {
     id: 'lensa-shafa',
@@ -104,7 +104,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     statusText: 'Production / Live Website',
     liveUrl: 'https://lensa-shafa.vercel.app/',
     imagePlaceholderText: 'Lensa Shafa Umrah Travel Agency',
-    imageSrc: '/images/lensa-shafa-preview.png'
+    imageSrc: '/images/lensa-shafa-preview.webp'
   },
   {
     id: 'nostra-caffe',
@@ -134,7 +134,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     statusText: 'Production / Live Website',
     liveUrl: 'https://nostra-caffe.vercel.app/',
     imagePlaceholderText: 'Nostra-Caffe Modern Digital Menu',
-    imageSrc: '/images/nostra-caffe-preview.png'
+    imageSrc: '/images/nostra-caffe-preview.webp'
   },
   {
     id: 'automation-creative-lab',

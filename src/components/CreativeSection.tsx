@@ -61,8 +61,9 @@ export const CreativeSection: React.FC = () => {
                 className="relative rounded-xl overflow-hidden border border-white/20 shadow-lg bg-black cursor-pointer"
               >
                 <img
-                  src="/images/capcut-project-preview.png"
+                  src="/images/capcut-project-preview.webp"
                   alt="CapCut Desktop Real Video Editing Timeline"
+                  loading="lazy"
                   className="w-full h-auto max-h-[480px] object-cover object-top filter brightness-95 group-hover:brightness-100 transition-all duration-300"
                 />
               </motion.div>

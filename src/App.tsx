@@ -41,36 +41,46 @@ export const App: React.FC = () => {
      Theme 4: Midnight Obsidian (About, Contact & Footer)
      ========================================================================= */
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const trigger = scrollY + windowHeight * 0.35;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const trigger = scrollY + windowHeight * 0.35;
 
-      const heroEl = document.getElementById('hero');
-      const projectsEl = document.getElementById('projects');
-      const skillsEl = document.getElementById('skills');
-      const creativeEl = document.getElementById('creative');
-      const aboutEl = document.getElementById('about');
-      const contactEl = document.getElementById('contact');
+          const projectsEl = document.getElementById('projects');
+          const skillsEl = document.getElementById('skills');
+          const creativeEl = document.getElementById('creative');
+          const aboutEl = document.getElementById('about');
+          const contactEl = document.getElementById('contact');
 
-      if (contactEl && trigger >= contactEl.offsetTop) {
-        setCurrentTheme('theme-4');
-        setActiveSection('contact');
-      } else if (aboutEl && trigger >= aboutEl.offsetTop) {
-        setCurrentTheme('theme-4');
-        setActiveSection('about');
-      } else if (creativeEl && trigger >= creativeEl.offsetTop) {
-        setCurrentTheme('theme-3');
-        setActiveSection('creative');
-      } else if (skillsEl && trigger >= skillsEl.offsetTop) {
-        setCurrentTheme('theme-3');
-        setActiveSection('skills');
-      } else if (projectsEl && trigger >= projectsEl.offsetTop) {
-        setCurrentTheme('theme-2');
-        setActiveSection('projects');
-      } else {
-        setCurrentTheme('theme-1');
-        setActiveSection('hero');
+          let newTheme = 'theme-1';
+          let newSection = 'hero';
+
+          if (contactEl && trigger >= contactEl.offsetTop) {
+            newTheme = 'theme-4';
+            newSection = 'contact';
+          } else if (aboutEl && trigger >= aboutEl.offsetTop) {
+            newTheme = 'theme-4';
+            newSection = 'about';
+          } else if (creativeEl && trigger >= creativeEl.offsetTop) {
+            newTheme = 'theme-3';
+            newSection = 'creative';
+          } else if (skillsEl && trigger >= skillsEl.offsetTop) {
+            newTheme = 'theme-3';
+            newSection = 'skills';
+          } else if (projectsEl && trigger >= projectsEl.offsetTop) {
+            newTheme = 'theme-2';
+            newSection = 'projects';
+          }
+
+          setCurrentTheme((prev) => (prev !== newTheme ? newTheme : prev));
+          setActiveSection((prev) => (prev !== newSection ? newSection : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

@@ -123,19 +123,13 @@ export async function trackVisitorArrival() {
   const referrer = document.referrer ? document.referrer : 'Langsung (Direct / Bookmark / WhatsApp)';
   const currentUrl = window.location.href;
 
-  // Optional lightweight IP lookup with fast 1.2s timeout
-  let locationInfo = 'Mendeteksi...';
+  // Non-blocking client-side timezone & locale detection (no external network fetch)
+  let locationInfo = 'Indonesia / WIB (UTC+7)';
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 1200);
-    const ipRes = await fetch('https://ipapi.co/json/', { signal: controller.signal });
-    clearTimeout(timeout);
-    if (ipRes.ok) {
-      const data = await ipRes.json();
-      locationInfo = `${data.city || 'Kota'}, ${data.region || ''} - ${data.country_name || 'Indonesia'} (IP: ${data.ip || 'Tersembunyi'})`;
-    }
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Jakarta';
+    locationInfo = `Zona Waktu: ${tz} (${navigator.language || 'id-ID'})`;
   } catch {
-    locationInfo = 'Indonesia / Terproteksi';
+    locationInfo = 'Indonesia';
   }
 
   const embed = {

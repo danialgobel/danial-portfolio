@@ -3,10 +3,15 @@ import { ArrowUpRight, Download, Code2, Smartphone, Terminal, Film, MapPin } fro
 import { TechIcon } from './TechIcons';
 import { motion } from 'motion/react';
 import { SMOOTH_EASE } from '../utils/animationVariants';
-import { Lanyard } from './Lanyard/Lanyard';
+import { ResumeModal } from './ResumeModal';
+
+// Code-split heavy 3D Three.js & Rapier physics canvas
+const Lanyard = React.lazy(() =>
+  import('./Lanyard/Lanyard').then((m) => ({ default: m.Lanyard }))
+);
 
 export const HeroSection: React.FC = () => {
-  const [imageError, setImageError] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
     <section
@@ -17,7 +22,7 @@ export const HeroSection: React.FC = () => {
         
         {/* =================================================================
             1. FIRST FOLD: Hero Headline + Profile Photo
-            Clean, impressive, spacious — no distracting clutter
+            Clean, impressive, spacious
             ================================================================= */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -73,12 +78,33 @@ export const HeroSection: React.FC = () => {
             {/* Right: Interactive 3D Lanyard ID Card with Gravity Drop */}
             <div className="shrink-0 flex flex-col items-center gap-2.5 w-full md:w-[320px] lg:w-[360px] xl:w-[400px]">
               <div className="relative w-full h-[360px] sm:h-[420px] md:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden p-1 apple-glass border border-white/20 shadow-2xl flex items-center justify-center">
-                <Lanyard
-                  frontImage="/images/profile.jpg"
-                  position={[0, 0, 11]}
-                  gravity={[0, -28, 0]}
-                  fov={28}
-                />
+                <Suspense
+                  fallback={
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                      <div className="w-36 h-48 rounded-2xl overflow-hidden border border-white/30 shadow-xl mb-4 relative bg-slate-900">
+                        <img
+                          src="/images/profile.jpg"
+                          alt="Danial Habib Abdillah"
+                          className="w-full h-full object-cover object-top opacity-90"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 py-1 bg-black/75 text-[9px] font-mono text-white/90">
+                          DANIAL GOBEL
+                        </div>
+                      </div>
+                      <span className="text-xs font-mono text-[var(--theme-accent)] flex items-center gap-2 font-medium">
+                        <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)] animate-pulse" />
+                        <span>3D Lanyard Siap...</span>
+                      </span>
+                    </div>
+                  }
+                >
+                  <Lanyard
+                    frontImage="/images/profile.jpg"
+                    position={[0, 0, 11]}
+                    gravity={[0, -28, 0]}
+                    fov={28}
+                  />
+                </Suspense>
               </div>
             </div>
 
@@ -86,7 +112,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
 
         {/* =================================================================
-            2. SECOND FOLD (Scroll Down): Narrative Bio, Tech Badges & CTAs
+            2. SECOND FOLD (Scroll Down): Narrative Bio & CTAs
             ================================================================= */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -96,29 +122,11 @@ export const HeroSection: React.FC = () => {
         >
           {/* Bio Narrative */}
           <p className="text-sm sm:text-base lg:text-lg text-[var(--theme-text-secondary)] font-normal leading-relaxed max-w-4xl">
-            Mahasiswa Teknik Informatika di <strong className="text-[var(--theme-text-primary)] font-semibold">Universitas Ahmad Dahlan (UAD)</strong>, Yogyakarta. Berfokus pada perancangan dan pengembangan ekosistem digital terintegrasi — mulai dari platform Web modern berperforma tinggi, aplikasi Android &amp; iOS, hingga produksi video konten kreatif berkualitas tinggi menggunakan CapCut Desktop.
+            Mahasiswa Teknik Informatika di <strong className="text-[var(--theme-text-primary)] font-semibold">Universitas Ahmad Dahlan (UAD)</strong>, Yogyakarta. Berfokus pada perancangan dan pengembangan ekosistem digital terintegrasi, mulai dari platform Web modern berperforma tinggi, aplikasi Android &amp; iOS, hingga produksi video konten kreatif berkualitas tinggi menggunakan CapCut Desktop.
           </p>
 
-          {/* Specialization Pills */}
-          <div className="flex flex-wrap items-center gap-2 pt-1">
-            <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-medium">
-              <Code2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-              <span>Web &bull; React 19 &amp; TypeScript</span>
-            </span>
-
-            <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-medium">
-              <Smartphone className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-              <span>Mobile &bull; Android &amp; iOS Client</span>
-            </span>
-
-            <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-medium">
-              <TechIcon name="capcut" size={13} className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-              <span>CapCut Desktop Editor &bull; 3+ Tahun</span>
-            </span>
-          </div>
-
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <a
               href="#projects"
               className="apple-glass-button-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold shadow-lg transition-all"
@@ -134,15 +142,19 @@ export const HeroSection: React.FC = () => {
               <span>Hubungi Saya</span>
             </a>
 
-            <a
-              href="#about"
-              className="apple-glass-subtle inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold hover:border-[var(--theme-accent)] transition-all"
+            <button
+              type="button"
+              onClick={() => setIsResumeOpen(true)}
+              className="apple-glass-subtle inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold hover:border-[var(--theme-accent)] transition-all cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
               <span>Resume [CV]</span>
-            </a>
+            </button>
           </div>
         </motion.div>
+
+        {/* Resume Modal */}
+        <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
 
         {/* =================================================================
             3. FOUR CAPABILITY CARDS (Apple Glass Styling)
