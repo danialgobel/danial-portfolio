@@ -8,9 +8,11 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const webhookUrl =
-      process.env.DISCORD_WEBHOOK_URL ||
-      'https://discord.com/api/webhooks/1547841270838337637/CbUzIP0jo5kls9Bx7oxZJ5qn4cV-pWLOw_0rng7FOcXv1OPL5kDoD5wwtuTgwdkot8QY';
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    if (!webhookUrl) {
+      // Gracefully skip if DISCORD_WEBHOOK_URL is not configured in Vercel settings
+      return res.status(200).json({ status: 'skipped', message: 'DISCORD_WEBHOOK_URL not configured' });
+    }
 
     const userAgent = (req.headers['user-agent'] || '').toLowerCase();
     

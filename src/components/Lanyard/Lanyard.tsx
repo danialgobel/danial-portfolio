@@ -201,13 +201,13 @@ function createCardCanvases(img: HTMLImageElement | null): {
     fCtx.fillStyle = '#94A3B8';
     fCtx.font = '700 20px system-ui, -apple-system, sans-serif';
     fCtx.textAlign = 'left';
-    fCtx.fillText('SPECIALIZATION & ROLES', 80, plateY + 250);
+    fCtx.fillText('SPECIALIZATION & FOCUS', 80, plateY + 250);
 
     // Roles (3 Lines)
     fCtx.fillStyle = '#334155';
     fCtx.font = '600 28px system-ui, -apple-system, sans-serif';
-    fCtx.fillText('Developer', 80, plateY + 295);
-    fCtx.fillText('Creative Technologist', 80, plateY + 340);
+    fCtx.fillText('Informatics Student', 80, plateY + 295);
+    fCtx.fillText('Digital Creator', 80, plateY + 340);
     fCtx.fillText('CapCut Video Specialist', 80, plateY + 385);
 
     // Subtle edge rim border
@@ -268,7 +268,7 @@ function createCardCanvases(img: HTMLImageElement | null): {
     bCtx.font = 'bold 24px monospace';
     bCtx.textAlign = 'center';
     bCtx.letterSpacing = '4px';
-    bCtx.fillText('CREATIVE TECHNOLOGIST PASS', W / 2, 210);
+    bCtx.fillText('INFORMATICS STUDENT PASS', W / 2, 210);
 
     // Large DanialGobel Monogram Logo
     const logoCenterY = 470;
@@ -284,7 +284,7 @@ function createCardCanvases(img: HTMLImageElement | null): {
     // Tagline & Institution
     bCtx.fillStyle = '#64748B';
     bCtx.font = '600 26px system-ui, -apple-system, sans-serif';
-    bCtx.fillText('DEVELOPER • CREATIVE TECHNOLOGIST', W / 2, logoCenterY + 250);
+    bCtx.fillText('INFORMATICS STUDENT • DIGITAL CREATOR', W / 2, logoCenterY + 250);
     bCtx.fillText('UNIVERSITAS AHMAD DAHLAN (UAD)', W / 2, logoCenterY + 290);
 
     // Divider Line

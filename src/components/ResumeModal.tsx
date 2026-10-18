@@ -74,7 +74,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   Danial Habib Abdillah
                 </h3>
                 <p className="text-xs font-mono text-[var(--theme-accent)] font-medium">
-                  Developer &bull; Creative Technologist &bull; Video Editor
+                  Informatics Student &bull; Digital Creator &bull; Video Specialist
                 </p>
                 <div className="flex items-center gap-1.5 text-xs text-[var(--theme-text-muted)] pt-0.5">
                   <GraduationCap className="w-3.5 h-3.5" />

@@ -3,8 +3,8 @@
  * Webhook: DanialGobel Portfolio Notifications
  */
 
-const DISCORD_WEBHOOK_URL =
-  'https://discord.com/api/webhooks/1547841270838337637/CbUzIP0jo5kls9Bx7oxZJ5qn4cV-pWLOw_0rng7FOcXv1OPL5kDoD5wwtuTgwdkot8QY';
+// Serverless API endpoint for privacy and geolocation protection
+const TRACK_API_ENDPOINT = '/api/track';
 
 // Generate or retrieve persistent session ID for current tab
 function getSessionId(): string {
@@ -88,33 +88,16 @@ class WebhookQueue {
       }
 
       try {
-        // 1. Try sending via /api/track (Serverless Edge Geolocation & Bot Filter)
-        const res = await fetch('/api/track', {
+        // Send via /api/track (Serverless Edge Geolocation & Bot Filter)
+        // No client secrets are exposed; webhook URL is securely stored in Vercel environment variables
+        await fetch(TRACK_API_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ type: payload.type || 'INTERACTION', payload })
         });
-
-        if (!res.ok) {
-          // 2. Fallback to direct webhook if running on static host/dev without API
-          await fetch(DISCORD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        }
         this.lastSendTime = Date.now();
-      } catch (err) {
-        // Fail-safe: Try direct fallback
-        try {
-          await fetch(DISCORD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        } catch {
-          // Never block UI
-        }
+      } catch {
+        // Never block or break UI on network anomalies
       }
     }
 

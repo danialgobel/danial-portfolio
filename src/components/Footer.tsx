@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <span className="text-[var(--theme-text-primary)] font-display font-semibold uppercase">Danial Habib Abdillah</span>
           </div>
           <span className="hidden sm:inline-block text-[var(--theme-text-muted)]">&bull;</span>
-          <span className="text-[var(--theme-text-muted)] text-[11px]">DEVELOPER &amp; CREATIVE TECHNOLOGIST</span>
+          <span className="text-[var(--theme-text-muted)] text-[11px]">INFORMATICS STUDENT &amp; DIGITAL CREATOR</span>
         </div>
 
         {/* Social Links Quick Access */}

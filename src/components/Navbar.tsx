@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     </span>
                   </div>
                   <span className="text-[9px] font-mono uppercase tracking-widest text-[var(--theme-text-muted)]">
-                    DEVELOPER &bull; CREATIVE
+                    INFORMATICS &bull; CREATOR
                   </span>
                 </div>
               </a>

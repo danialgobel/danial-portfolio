@@ -35,18 +35,18 @@ export const HeroSection: React.FC = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-10">
             
-            {/* Left: Name & Roles (Developer, Creative Technologist, CapCut Video Specialist) */}
+            {/* Left: Name & Roles (Informatics Student, Digital Creator, CapCut Video Specialist) */}
             <div className="flex flex-col gap-3 sm:gap-4 flex-1 text-left">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold uppercase tracking-tight text-[var(--theme-text-primary)] leading-[0.98]">
                 Danial Habib <br />
                 <span className="text-[var(--theme-text-muted)] font-medium">Abdillah</span>
               </h1>
 
-              {/* 3 Core Roles */}
+              {/* Core Roles */}
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs sm:text-sm text-[var(--theme-accent)] uppercase tracking-wider font-semibold">
-                <span>Developer</span>
+                <span>Informatics Student</span>
                 <span className="text-[var(--theme-text-muted)]">&bull;</span>
-                <span>Creative Technologist</span>
+                <span>Digital Creator</span>
                 <span className="text-[var(--theme-text-muted)]">&bull;</span>
                 <span>CapCut Video Specialist</span>
               </div>

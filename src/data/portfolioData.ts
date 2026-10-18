@@ -2,7 +2,7 @@ import { ProjectItem, SkillCategory, SocialLink } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Danial Habib Abdillah',
-  role: 'Developer & Creative Technologist',
+  role: 'Informatics Student & Digital Creator',
   subRole: 'Video Editor (3+ Years CapCut Desktop)',
   institution: 'Universitas Ahmad Dahlan (UAD), Yogyakarta',
   major: 'Teknik Informatika',
@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   availability: 'Open for Collaboration & Digital Projects',
   heroHeadline: 'Building digital products that transform raw ideas into functional, real-world experiences.',
   heroBio: 'Mahasiswa Teknik Informatika UAD yang menggabungkan software engineering, ekosistem multi-platform (Web, Android, iOS), otomasi, serta 3 tahun pengalaman video editing dengan CapCut Desktop.',
-  aboutQuote: 'Bagi saya, development bukan hanya tentang menulis kode. Proses terbaik adalah mengubah ide menjadi produk digital yang nyata, fungsional, dan memberikan nilai tinggi bagi penggunanya.',
+  aboutQuote: 'Bagi saya, teknologi bukan hanya tentang menghafal sintaks atau teori. Proses terbaik adalah mewujudkan ide menjadi karya digital nyata yang fungsional dan memberikan manfaat bagi penggunanya.',
 };
 
 export const PROJECTS_DATA: ProjectItem[] = [
