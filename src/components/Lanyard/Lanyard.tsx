@@ -579,7 +579,17 @@ function Band({ isMobile, textures }: BandProps) {
     return mat;
   }, [isMobile, textures]);
 
+  const hasDispatchedRendered = useRef(false);
+
   useFrame((state, delta) => {
+    // 0. Dispatch real rendered event to Preloader
+    if (!hasDispatchedRendered.current && card.current) {
+      hasDispatchedRendered.current = true;
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('lanyard-3d-rendered'));
+      }
+    }
+
     // 1. Mouse / Touch Dragging Raycasting + 360 Rotation during Drag
     if (dragged && card.current) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);

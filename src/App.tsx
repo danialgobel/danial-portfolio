@@ -12,8 +12,10 @@ import { useGsapAnimations } from './hooks/useGsapAnimations';
 import { initDiscordTracker } from './services/discordTracker';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ToastProvider } from './components/Toast';
+import { Preloader } from './components/Preloader';
 
 export const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [currentTheme, setCurrentTheme] = useState<string>('theme-1');
 
@@ -104,6 +106,9 @@ export const App: React.FC = () => {
 
   return (
     <ToastProvider>
+      {/* Real Asset Tracking Cinematic Preloader */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+
       <div
         id="app-theme-root"
         data-theme={currentTheme}
