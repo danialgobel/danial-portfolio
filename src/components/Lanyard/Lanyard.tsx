@@ -339,7 +339,7 @@ export interface LanyardTextures {
 let prewarmedTextures: LanyardTextures | null = null;
 let assetLoadPromise: Promise<LanyardTextures> | null = null;
 
-export function preloadLanyardAssets(src: string = '/images/profile.webp'): Promise<LanyardTextures> {
+export function preloadLanyardAssets(src: string = '/images/profile.jpg'): Promise<LanyardTextures> {
   if (typeof window === 'undefined') return Promise.resolve(null as any);
   if (prewarmedTextures) return Promise.resolve(prewarmedTextures);
   if (assetLoadPromise) return assetLoadPromise;
@@ -391,7 +391,7 @@ export const Lanyard: React.FC<LanyardProps> = ({
   gravity = [0, -28, 0],
   fov = 28,
   transparent = true,
-  frontImage = '/images/profile.webp',
+  frontImage = '/images/profile.jpg',
   className = ''
 }) => {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);

@@ -21,7 +21,7 @@ export const SkillsSection: React.FC = () => {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>Capabilities &bull; System Architecture</span>
+              <span>CAPABILITIES // TECH STACK &amp; SYSTEM ARCHITECTURE</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
               System Architecture &amp; Stack
@@ -57,7 +57,7 @@ export const SkillsSection: React.FC = () => {
                     </h3>
                   </div>
                   <span className="font-mono text-[11px] px-2 py-0.5 rounded-lg apple-glass-subtle text-[var(--theme-text-muted)] font-bold">
-                    0{idx + 1}
+                    0{idx + 1} //
                   </span>
                 </div>
 

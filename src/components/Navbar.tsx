@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               >
                 <div className="relative w-8 h-8 rounded-xl overflow-hidden border border-white/20 bg-black/50 text-white flex items-center justify-center font-display font-bold text-xs tracking-tight shadow-md">
                   <img
-                    src="/images/profile.webp"
+                    src="/images/profile.jpg"
                     alt="Danial Habib"
                     className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-110 transition-transform duration-300"
                     onError={(e) => {
@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                       }`}
                     >
                       <span className={isActive ? 'text-[var(--theme-accent)]' : 'text-[var(--theme-text-muted)]'}>
-                        {link.code}
+                        {link.code} //
                       </span>
                       <span>{link.label}</span>
                     </a>
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     className="px-3 py-2 text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] hover:bg-white/10 rounded-xl font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-between"
                   >
                     <span>{link.label}</span>
-                    <span className="text-[10px] text-[var(--theme-text-muted)]">{link.code}</span>
+                    <span className="text-[10px] text-[var(--theme-text-muted)]">{link.code} //</span>
                   </a>
                 ))}
                 

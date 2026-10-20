@@ -90,7 +90,7 @@ export const ContactSection: React.FC = () => {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>Get In Touch &bull; Collaboration &amp; Inquiries</span>
+              <span>GET IN TOUCH // COLLABORATION &amp; INQUIRIES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
               Let's Build Something Meaningful
