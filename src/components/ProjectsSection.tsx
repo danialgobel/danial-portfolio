@@ -45,7 +45,7 @@ export const ProjectsSection: React.FC = () => {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>PORTFOLIO // SELECTED WORKS &amp; SYSTEMS</span>
+              <span>Selected Work &amp; Case Studies</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
               Selected Systems &amp; Case Studies
@@ -100,7 +100,7 @@ export const ProjectsSection: React.FC = () => {
                 FEATURED CASE STUDY
               </span>
               <span className="text-[var(--theme-text-muted)] tracking-wider hidden sm:inline-block text-[11px]">
-                [ TANABREW // MULTI-PLATFORM ECOSYSTEM ]
+                [ TANABREW &bull; ROASTERY ECOSYSTEM ]
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-[var(--theme-accent)] font-medium text-[11px]">

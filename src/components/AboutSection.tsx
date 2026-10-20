@@ -20,7 +20,7 @@ export const AboutSection: React.FC = () => {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>BACKGROUND // PHILOSOPHY &amp; PROFILE</span>
+              <span>Background &bull; Philosophy &amp; Profile</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
               Behind The Engineering
@@ -80,7 +80,7 @@ export const AboutSection: React.FC = () => {
               className="p-6 sm:p-8 rounded-3xl apple-glass-subtle shadow-xl flex flex-col gap-3"
             >
               <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)] font-semibold">
-                PRINSIP PENGEMBANGAN // FILOSOFI KARYA
+                PRINSIP PENGEMBANGAN &bull; FILOSOFI KARYA
               </span>
               <blockquote className="text-sm sm:text-base text-[var(--theme-text-primary)] font-display font-medium leading-relaxed italic">
                 "{PERSONAL_INFO.aboutQuote}"

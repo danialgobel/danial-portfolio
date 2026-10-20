@@ -48,7 +48,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="flex items-center justify-between pb-3 border-b border-[var(--theme-border-hairline)]">
               <div className="flex items-center gap-2 font-mono text-xs text-[var(--theme-accent)] font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]" />
-                <span>CURRICULUM VITAE // CREDENTIALS</span>
+                <span>CURRICULUM VITAE &bull; CREDENTIALS</span>
               </div>
               <button
                 type="button"
@@ -64,7 +64,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 rounded-2xl overflow-hidden border border-white/20 shadow-md shrink-0">
                 <img
-                  src="/images/profile.jpg"
+                  src="/images/profile.webp"
                   alt="Danial Habib Abdillah"
                   className="w-full h-full object-cover object-top"
                 />

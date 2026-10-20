@@ -21,7 +21,7 @@ export const CreativeSection: React.FC = () => {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>CREATIVE PRODUCTION // VIDEO EDITING &amp; MOTION</span>
+              <span>Creative Production &bull; Video &amp; Motion</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
               Video Production &amp; Content
@@ -51,7 +51,7 @@ export const CreativeSection: React.FC = () => {
                   <TechIcon name="capcut" size={14} className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
                   <span className="text-[var(--theme-text-primary)] font-semibold">CapCut Desktop Production Workspace</span>
                 </div>
-                <span className="text-[var(--theme-accent)] font-medium text-[10px]">Real Project Draft // 4K 60FPS</span>
+                <span className="text-[var(--theme-accent)] font-medium text-[10px]">Real Project Draft &bull; 4K 60FPS</span>
               </div>
 
               {/* Real Workspace Screenshot */}
