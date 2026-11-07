@@ -19,11 +19,11 @@ export const CreativeSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6 border-b border-[var(--theme-border-hairline)] pb-4 sm:pb-5"
         >
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
+            <div className="flex items-center gap-2 text-xs text-[var(--theme-accent)] font-medium">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>CREATIVE PRODUCTION // VIDEO EDITING &amp; MOTION</span>
+              <span>Creative Production and Motion</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium tracking-tight text-[var(--theme-text-primary)]">
               Video Production &amp; Content
             </h2>
           </div>
@@ -46,12 +46,12 @@ export const CreativeSection: React.FC = () => {
             <div className="rounded-2xl apple-glass-subtle p-3 sm:p-5 shadow-sm flex flex-col gap-3 group">
               
               {/* Header Bar */}
-              <div className="flex items-center justify-between pb-2.5 border-b border-[var(--theme-border-hairline)] font-mono text-[10px] text-[var(--theme-text-muted)]">
+              <div className="flex items-center justify-between pb-2.5 border-b border-[var(--theme-border-hairline)] text-xs text-[var(--theme-text-muted)]">
                 <div className="flex items-center gap-2">
-                  <TechIcon name="capcut" size={14} className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <TechIcon name="capcut" size={14} className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                   <span className="text-[var(--theme-text-primary)] font-semibold">CapCut Desktop Production Workspace</span>
                 </div>
-                <span className="text-[var(--theme-accent)] font-medium text-[10px]">Real Project Draft // 4K 60FPS</span>
+                <span className="text-[var(--theme-accent)] font-medium text-xs">Real Project Draft (4K 60FPS)</span>
               </div>
 
               {/* Real Workspace Screenshot */}
@@ -63,13 +63,14 @@ export const CreativeSection: React.FC = () => {
                 <img
                   src="/images/capcut-project-preview.webp"
                   alt="CapCut Desktop Real Video Editing Timeline"
-                  loading="lazy"
-                  className="w-full h-auto max-h-[480px] object-cover object-top filter brightness-95 group-hover:brightness-100 transition-all duration-300"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="w-full h-auto max-h-[480px] object-cover object-top filter brightness-95 group-hover:brightness-100 transition-[filter] duration-300"
                 />
               </motion.div>
 
-              <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-[var(--theme-text-muted)]">
-                <span>Footage Cutting &bull; Audio Keyframes &bull; Color Grading &bull; Dynamic Typography</span>
+              <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--theme-text-muted)]">
+                <span>Footage Cutting, Audio Keyframes, Color Grading, Dynamic Typography</span>
                 <span className="text-[var(--theme-accent)] font-semibold">3Y+ Production Experience</span>
               </div>
 
@@ -81,19 +82,19 @@ export const CreativeSection: React.FC = () => {
             
             {/* Tagline & Badges */}
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] border border-[var(--theme-border-subtle)] text-xs font-mono font-semibold">
-                <TechIcon name="capcut" size={16} className="w-4 h-4 text-[var(--theme-accent)]" />
+              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] border border-[var(--theme-border-subtle)] text-xs font-semibold">
+                <TechIcon name="capcut" size={16} className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />
                 <span>CapCut Desktop Specialist</span>
-                <span className="text-[var(--theme-accent)]">&bull;</span>
+                <span className="text-[var(--theme-accent)]">/</span>
                 <span>3+ Tahun Pengalaman</span>
               </div>
-              <span className="text-xs font-mono text-[var(--theme-text-muted)]">
+              <span className="text-xs text-[var(--theme-text-muted)]">
                 100+ Video Produksi Siap Tayang
               </span>
             </div>
 
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl sm:text-2xl font-display font-semibold uppercase text-[var(--theme-text-primary)] tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-display font-semibold text-[var(--theme-text-primary)] tracking-tight">
                 Pacing Presisi, Visual Motion &amp; Storytelling Konten
               </h3>
               <p className="text-xs sm:text-sm text-[var(--theme-text-secondary)] leading-relaxed font-normal max-w-4xl">
@@ -110,7 +111,7 @@ export const CreativeSection: React.FC = () => {
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                   className="p-4 rounded-2xl apple-glass-subtle flex flex-col gap-1.5 shadow-md"
                 >
-                  <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--theme-text-primary)] uppercase">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--theme-text-primary)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--theme-accent)]" />
                     <span>{cap.title}</span>
                   </div>

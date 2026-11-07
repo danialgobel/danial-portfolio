@@ -49,7 +49,7 @@ export const App: React.FC = () => {
   });
 
   /* =========================================================================
-     4-THEME SECTION CONTROLLER (Zero Jank / 120 FPS Native Performance)
+     BULLETPROOF 4-THEME SECTION CONTROLLER (Zero Jank / 120 FPS Performance)
      Theme 1: Light Alabaster (Hero)
      Theme 2: Deep Navy Sapphire (Projects / Tanabrew)
      Theme 3: Deep Cyber Pine (Skills & Creative Media / CapCut)

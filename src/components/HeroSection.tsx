@@ -56,54 +56,54 @@ export const HeroSection: React.FC = () => {
             
             {/* Left: Name & Roles (Informatics Student, Digital Creator, CapCut Video Specialist) */}
             <div className="flex flex-col gap-3 sm:gap-4 flex-1 text-left">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold uppercase tracking-tight text-[var(--theme-text-primary)] leading-[0.98]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold tracking-tight text-[var(--theme-text-primary)] leading-[0.98]">
                 Danial Habib <br />
                 <span className="text-[var(--theme-text-muted)] font-medium">Abdillah</span>
               </h1>
 
               {/* Core Roles */}
-              <div className="flex flex-wrap items-center gap-2 font-mono text-xs sm:text-sm text-[var(--theme-accent)] uppercase tracking-wider font-semibold">
+              <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[var(--theme-accent)] font-medium">
                 <span>Informatics Student</span>
-                <span className="text-[var(--theme-text-muted)]">&bull;</span>
+                <span className="text-[var(--theme-text-muted)]">/</span>
                 <span>Digital Creator</span>
-                <span className="text-[var(--theme-text-muted)]">&bull;</span>
+                <span className="text-[var(--theme-text-muted)]">/</span>
                 <span>CapCut Video Specialist</span>
               </div>
 
               {/* Quick Specialized Pills on Top Fold */}
               <div className="flex flex-wrap items-center gap-2 pt-0.5">
-                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-medium">
-                  <Code2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>Web &bull; React 19 &amp; TS</span>
+                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium">
+                  <Code2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>Web: React 19 and TypeScript</span>
                 </span>
 
-                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-medium">
-                  <Smartphone className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>Mobile &bull; Android &amp; iOS</span>
+                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium">
+                  <Smartphone className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>Mobile: Android and iOS</span>
                 </span>
 
-                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-medium">
-                  <TechIcon name="capcut" size={13} className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>CapCut Desktop Editor &bull; 3Y+</span>
+                <span className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium">
+                  <TechIcon name="capcut" size={13} className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>CapCut Desktop Editor (3+ Years)</span>
                 </span>
               </div>
 
               {/* Dynamic Live Status & Location Pill */}
               <div className="flex flex-wrap items-center gap-2 pt-1">
-                <div className="apple-glass-pill inline-flex items-center gap-2 px-3 py-1 rounded-xl text-[11px] font-mono">
+                <div className="apple-glass-pill inline-flex items-center gap-2 px-3 py-1 rounded-xl text-xs">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                  <span className="text-[var(--theme-text-primary)] font-medium">AVAILABLE FOR PROJECTS</span>
+                  <span className="text-[var(--theme-text-primary)] font-medium">Available for projects</span>
                   {localTime && (
                     <>
-                      <span className="text-[var(--theme-text-muted)]">&bull;</span>
+                      <span className="text-[var(--theme-text-muted)]">/</span>
                       <span className="text-[var(--theme-accent)] font-semibold">{localTime} WIB</span>
                     </>
                   )}
                 </div>
 
-                <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-text-muted)]">
-                  <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>Yogyakarta, ID &bull; UAD</span>
+                <div className="flex items-center gap-1.5 text-xs text-[var(--theme-text-muted)] font-medium">
+                  <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>Yogyakarta, ID (Universitas Ahmad Dahlan)</span>
                 </div>
               </div>
             </div>
@@ -120,13 +120,13 @@ export const HeroSection: React.FC = () => {
                           alt="Danial Habib Abdillah"
                           className="w-full h-full object-cover object-top opacity-90"
                         />
-                        <div className="absolute inset-x-0 bottom-0 py-1 bg-black/75 text-[9px] font-mono text-white/90">
-                          DANIAL GOBEL
+                        <div className="absolute inset-x-0 bottom-0 py-1 bg-black/75 text-[10px] font-mono text-white/90">
+                          Danial Gobel
                         </div>
                       </div>
-                      <span className="text-xs font-mono text-[var(--theme-accent)] flex items-center gap-2 font-medium">
+                      <span className="text-xs text-[var(--theme-accent)] flex items-center gap-2 font-medium">
                         <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)] animate-pulse" />
-                        <span>3D Lanyard Siap...</span>
+                        <span>Memuat 3D Lanyard...</span>
                       </span>
                     </div>
                   }
@@ -162,15 +162,15 @@ export const HeroSection: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <a
               href="#projects"
-              className="apple-glass-button-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold shadow-lg transition-all"
+              className="apple-glass-button-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-lg transition-colors transition-transform"
             >
               <span>Lihat Projek</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
             </a>
 
             <a
               href="#contact"
-              className="apple-glass-button-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold transition-all"
+              className="apple-glass-button-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-colors transition-transform"
             >
               <span>Hubungi Saya</span>
             </a>
@@ -178,9 +178,9 @@ export const HeroSection: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsResumeOpen(true)}
-              className="apple-glass-subtle inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider font-semibold hover:border-[var(--theme-accent)] transition-all cursor-pointer"
+              className="apple-glass-subtle inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold hover:border-[var(--theme-accent)] transition-colors cursor-pointer"
             >
-              <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+              <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
               <span>Resume [CV]</span>
             </button>
           </div>
@@ -194,39 +194,39 @@ export const HeroSection: React.FC = () => {
             ================================================================= */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           <div className="apple-glass-subtle p-4 rounded-2xl flex flex-col gap-1">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-accent)] font-semibold">
-              <Code2 className="w-3.5 h-3.5" />
-              <span>WEB PLATFORM</span>
+            <div className="flex items-center gap-1.5 text-xs text-[var(--theme-accent)] font-semibold">
+              <Code2 className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Web Platform</span>
             </div>
-            <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">React 19 &bull; TS</span>
-            <span className="text-[10px] text-[var(--theme-text-muted)]">Vite &bull; Tailwind CSS</span>
+            <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">React 19 &amp; TypeScript</span>
+            <span className="text-[11px] text-[var(--theme-text-muted)]">Vite, Tailwind CSS</span>
           </div>
 
           <div className="apple-glass-subtle p-4 rounded-2xl flex flex-col gap-1">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-accent)] font-semibold">
-              <Smartphone className="w-3.5 h-3.5" />
-              <span>MOBILE APPS</span>
+            <div className="flex items-center gap-1.5 text-xs text-[var(--theme-accent)] font-semibold">
+              <Smartphone className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Mobile Apps</span>
             </div>
-            <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">Android &bull; iOS</span>
-            <span className="text-[10px] text-[var(--theme-text-muted)]">Client Ecosystem</span>
+            <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">Android &amp; iOS</span>
+            <span className="text-[11px] text-[var(--theme-text-muted)]">Client Ecosystem</span>
           </div>
 
           <div className="apple-glass-subtle p-4 rounded-2xl flex flex-col gap-1">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-accent)] font-semibold">
-              <Terminal className="w-3.5 h-3.5" />
-              <span>CLOUD &amp; DB</span>
+            <div className="flex items-center gap-1.5 text-xs text-[var(--theme-accent)] font-semibold">
+              <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Cloud &amp; DB</span>
             </div>
             <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">Firebase Realtime</span>
-            <span className="text-[10px] text-[var(--theme-text-muted)]">Firestore &bull; Auth</span>
+            <span className="text-[11px] text-[var(--theme-text-muted)]">Firestore, Auth</span>
           </div>
 
           <div className="apple-glass-subtle p-4 rounded-2xl flex flex-col gap-1">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--theme-accent)] font-semibold">
-              <Film className="w-3.5 h-3.5" />
-              <span>VIDEO EDITING</span>
+            <div className="flex items-center gap-1.5 text-xs text-[var(--theme-accent)] font-semibold">
+              <Film className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Video Editing</span>
             </div>
             <span className="font-display text-sm sm:text-base font-bold text-[var(--theme-text-primary)]">CapCut Desktop</span>
-            <span className="text-[10px] text-[var(--theme-text-muted)]">3+ Tahun Pacing</span>
+            <span className="text-[11px] text-[var(--theme-text-muted)]">3+ Tahun Pacing</span>
           </div>
         </div>
 

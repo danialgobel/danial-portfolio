@@ -1,3 +1,4 @@
+/* Hallmark · theme: bespoke · built: 2026-11-08 · redesign: polish */
 @import "tailwindcss";
 
 @theme {
@@ -41,6 +42,18 @@
   --theme-btn-secondary-bg: rgba(255, 255, 255, 0.90);
   --theme-btn-secondary-text: #0F1713;
   --theme-btn-secondary-border: rgba(15, 23, 19, 0.14);
+
+  --white: #FFFFFF;
+  --grid-line: rgba(120, 150, 130, 0.08);
+  --scrollbar-thumb: rgba(120, 150, 130, 0.25);
+  --scrollbar-thumb-hover: rgba(120, 150, 130, 0.45);
+  --spotlight-glow: rgba(27, 94, 60, 0.08);
+  --preloader-glow: rgba(27, 94, 60, 0.08);
+  --preloader-shadow-window: 0 25px 60px -15px rgba(0, 0, 0, 0.12);
+  --preloader-shadow-modal: 0 20px 45px rgba(0, 0, 0, 0.08);
+  --btn-primary-shadow: 0 4px 14px -2px rgba(15, 23, 19, 0.25);
+  --btn-primary-shadow-hover: 0 6px 20px -2px rgba(15, 23, 19, 0.35);
+  --btn-secondary-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.07);
 }
 
 [data-theme="theme-2"] {
@@ -69,6 +82,18 @@
   --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
   --theme-btn-secondary-text: #FFFFFF;
   --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
+
+  --white: #FFFFFF;
+  --grid-line: rgba(56, 189, 248, 0.08);
+  --scrollbar-thumb: rgba(56, 189, 248, 0.25);
+  --scrollbar-thumb-hover: rgba(56, 189, 248, 0.45);
+  --spotlight-glow: rgba(56, 189, 248, 0.12);
+  --preloader-glow: rgba(56, 189, 248, 0.10);
+  --preloader-shadow-window: 0 25px 60px -15px rgba(0, 0, 0, 0.65);
+  --preloader-shadow-modal: 0 20px 45px rgba(0, 0, 0, 0.50);
+  --btn-primary-shadow: 0 4px 14px -2px rgba(56, 189, 248, 0.35);
+  --btn-primary-shadow-hover: 0 6px 20px -2px rgba(56, 189, 248, 0.45);
+  --btn-secondary-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="theme-3"] {
@@ -97,6 +122,18 @@
   --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
   --theme-btn-secondary-text: #FFFFFF;
   --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
+
+  --white: #FFFFFF;
+  --grid-line: rgba(74, 222, 128, 0.08);
+  --scrollbar-thumb: rgba(74, 222, 128, 0.25);
+  --scrollbar-thumb-hover: rgba(74, 222, 128, 0.45);
+  --spotlight-glow: rgba(74, 222, 128, 0.12);
+  --preloader-glow: rgba(74, 222, 128, 0.10);
+  --preloader-shadow-window: 0 25px 60px -15px rgba(0, 0, 0, 0.65);
+  --preloader-shadow-modal: 0 20px 45px rgba(0, 0, 0, 0.50);
+  --btn-primary-shadow: 0 4px 14px -2px rgba(74, 222, 128, 0.35);
+  --btn-primary-shadow-hover: 0 6px 20px -2px rgba(74, 222, 128, 0.45);
+  --btn-secondary-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="theme-4"] {
@@ -125,11 +162,24 @@
   --theme-btn-secondary-bg: rgba(255, 255, 255, 0.12);
   --theme-btn-secondary-text: #FFFFFF;
   --theme-btn-secondary-border: rgba(255, 255, 255, 0.20);
+
+  --white: #FFFFFF;
+  --grid-line: rgba(255, 255, 255, 0.06);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.20);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.40);
+  --spotlight-glow: rgba(52, 211, 153, 0.12);
+  --preloader-glow: rgba(52, 211, 153, 0.10);
+  --preloader-shadow-window: 0 25px 60px -15px rgba(0, 0, 0, 0.75);
+  --preloader-shadow-modal: 0 20px 45px rgba(0, 0, 0, 0.60);
+  --btn-primary-shadow: 0 4px 14px -2px rgba(255, 255, 255, 0.25);
+  --btn-primary-shadow-hover: 0 6px 20px -2px rgba(255, 255, 255, 0.35);
+  --btn-secondary-shadow: 0 20px 48px -4px rgba(0, 0, 0, 0.70);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   
   body,
@@ -138,7 +188,7 @@
     color: var(--theme-text-primary);
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
-    overflow-x: hidden;
+    overflow-x: clip;
     transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -146,11 +196,21 @@
   h1, h2, h3, .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 2px;
+  }
+
+  button:active, .apple-glass-button-primary:active, .apple-glass-button-secondary:active {
+    transform: translateY(1px);
   }
 
   ::selection {
     background-color: var(--theme-accent);
-    color: #FFFFFF;
+    color: var(--white);
   }
 }
 
@@ -198,23 +258,23 @@
 .apple-glass-button-primary {
   background: var(--theme-btn-primary-bg);
   color: var(--theme-btn-primary-text);
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
+  border: 1px solid var(--theme-border-hairline);
+  box-shadow: var(--btn-primary-shadow);
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .apple-glass-button-primary:hover {
-  opacity: 0.92;
+  opacity: 0.95;
   transform: translateY(-1px);
+  box-shadow: var(--btn-primary-shadow-hover);
 }
 
 .apple-glass-button-secondary {
   background: var(--theme-btn-secondary-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--theme-btn-secondary-border);
   color: var(--theme-btn-secondary-text);
-  box-shadow: var(--apple-glass-shadow);
-  transition: all 0.3s ease;
+  box-shadow: var(--btn-secondary-shadow);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .apple-glass-button-secondary:hover {
@@ -226,8 +286,8 @@
 .bg-terranova-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(120, 150, 130, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(120, 150, 130, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 }
 
 /* Custom sleek scrollbar */
@@ -239,11 +299,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(120, 150, 130, 0.25);
+  background: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 150, 130, 0.45);
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Interactive Cursor Spotlight Glow */
@@ -258,7 +318,7 @@
   border-radius: inherit;
   background: radial-gradient(
     550px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
-    rgba(255, 255, 255, 0.08),
+    var(--spotlight-glow),
     transparent 65%
   );
   opacity: 0;
@@ -271,10 +331,22 @@
   opacity: 1;
 }
 
+/* Preloader helper styles */
+.preloader-glow {
+  background: radial-gradient(circle at center, var(--preloader-glow) 0%, transparent 70%);
+}
+.preloader-window-shadow {
+  box-shadow: var(--preloader-shadow-window);
+}
+.preloader-modal-shadow {
+  box-shadow: var(--preloader-shadow-modal);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

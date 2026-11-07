@@ -30,7 +30,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'nav-projects',
       title: 'Loncat ke Selected Projects (Tanabrew, Nostra, dll)',
       category: 'Navigasi',
-      icon: <FolderGit2 className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <FolderGit2 className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
@@ -40,7 +40,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'nav-skills',
       title: 'Loncat ke System Architecture & Tech Stack',
       category: 'Navigasi',
-      icon: <Code2 className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <Code2 className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
@@ -50,7 +50,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'nav-creative',
       title: 'Loncat ke Video Production & CapCut Showcase',
       category: 'Navigasi',
-      icon: <Film className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <Film className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         document.getElementById('creative')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
@@ -60,7 +60,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'nav-about',
       title: 'Loncat ke Background Profile (Mahasiswa Informatika UAD)',
       category: 'Navigasi',
-      icon: <User className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <User className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
@@ -70,7 +70,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'nav-contact',
       title: 'Loncat ke Kontak & Formulir Pesan Langsung',
       category: 'Navigasi',
-      icon: <Send className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <Send className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
@@ -82,7 +82,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'act-resume',
       title: 'Buka Curriculum Vitae [CV] Modal',
       category: 'Aksi',
-      icon: <FileText className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <FileText className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         onClose();
         onOpenResume();
@@ -92,7 +92,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'act-copy-email',
       title: 'Salin Alamat Email (danialgobel26@gmail.com)',
       category: 'Aksi',
-      icon: <Copy className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <Copy className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         navigator.clipboard.writeText('danialgobel26@gmail.com');
         showToast('Alamat email berhasil disalin!');
@@ -103,7 +103,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'act-copy-url',
       title: 'Salin Tautan Web Portofolio',
       category: 'Aksi',
-      icon: <Share2 className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <Share2 className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         navigator.clipboard.writeText(window.location.origin || 'https://danial-portfolio-inky.vercel.app');
         showToast('Tautan portofolio berhasil disalin!');
@@ -114,7 +114,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'act-share-wa',
       title: 'Bagikan Portofolio ke WhatsApp',
       category: 'Aksi',
-      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         const text = encodeURIComponent(
           'Halo, silakan cek portofolio Danial Habib Abdillah (Informatics Student & Digital Creator): ' +
@@ -130,7 +130,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'link-github',
       title: 'Buka Profil GitHub (@danialgobel)',
       category: 'Tautan Luar',
-      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         window.open('https://github.com/danialgobel', '_blank');
         onClose();
@@ -140,7 +140,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'link-instagram',
       title: 'Buka Akun Instagram (@danialgobell)',
       category: 'Tautan Luar',
-      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         window.open('https://www.instagram.com/danialgobell/', '_blank');
         onClose();
@@ -150,7 +150,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       id: 'link-tiktok',
       title: 'Buka Akun TikTok (@danialgobelll)',
       category: 'Tautan Luar',
-      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" />,
+      icon: <ExternalLink className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />,
       action: () => {
         window.open('https://www.tiktok.com/@danialgobelll', '_blank');
         onClose();
@@ -226,28 +226,29 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
           >
             {/* Input Header */}
             <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[var(--theme-border-hairline)]">
-              <Search className="w-4 h-4 text-[var(--theme-accent)] shrink-0" />
+              <Search className="w-4 h-4 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Ketik perintah atau cari navigasi..."
-                className="w-full bg-transparent font-mono text-xs sm:text-sm text-[var(--theme-text-primary)] placeholder-[var(--theme-text-muted)] focus:outline-none"
+                className="w-full bg-transparent text-xs sm:text-sm text-[var(--theme-text-primary)] placeholder-[var(--theme-text-muted)] focus:outline-none"
               />
               <button
                 type="button"
                 onClick={onClose}
                 className="p-1 rounded-lg text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-colors"
+                aria-label="Tutup Command Palette"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
             {/* Command List */}
             <div className="max-h-72 overflow-y-auto p-2 flex flex-col gap-1">
               {filteredCommands.length === 0 ? (
-                <div className="py-8 text-center text-xs font-mono text-[var(--theme-text-muted)]">
+                <div className="py-8 text-center text-xs text-[var(--theme-text-muted)]">
                   Tidak ada perintah yang cocok dengan "{query}"
                 </div>
               ) : (
@@ -259,7 +260,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
                       type="button"
                       onClick={cmd.action}
                       onMouseEnter={() => setSelectedIndex(idx)}
-                      className={`w-full px-3 py-2.5 rounded-xl flex items-center justify-between text-left transition-all ${
+                      className={`w-full px-3 py-2.5 rounded-xl flex items-center justify-between text-left transition-colors ${
                         isSelected
                           ? 'bg-[var(--theme-accent-light)] text-[var(--theme-text-primary)] border border-[var(--theme-border-subtle)]'
                           : 'text-[var(--theme-text-secondary)] hover:bg-white/5'
@@ -270,17 +271,17 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
                           {cmd.icon}
                         </div>
                         <div className="flex flex-col min-w-0">
-                          <span className="font-mono text-xs font-medium truncate">
+                          <span className="text-xs font-medium truncate">
                             {cmd.title}
                           </span>
-                          <span className="text-[10px] font-mono text-[var(--theme-text-muted)] uppercase tracking-wider">
+                          <span className="text-[11px] text-[var(--theme-text-muted)]">
                             {cmd.category}
                           </span>
                         </div>
                       </div>
 
                       {isSelected && (
-                        <ArrowRight className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0 ml-2" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0 ml-2" aria-hidden="true" />
                       )}
                     </button>
                   );
@@ -289,7 +290,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
             </div>
 
             {/* Footer Bar */}
-            <div className="px-4 py-2.5 border-t border-[var(--theme-border-hairline)] flex items-center justify-between font-mono text-[10px] text-[var(--theme-text-muted)]">
+            <div className="px-4 py-2.5 border-t border-[var(--theme-border-hairline)] flex items-center justify-between text-xs text-[var(--theme-text-muted)]">
               <div className="flex items-center gap-3">
                 <span>[↑↓] Navigasi</span>
                 <span>[Enter] Pilih</span>

@@ -54,15 +54,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none transition-transform duration-300">
         {/* Floating Apple Glass Navigation Bar */}
-        <div className="w-full pointer-events-auto transition-all duration-300 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
+        <div className="w-full pointer-events-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
           <div
-            className={`max-w-7xl mx-auto rounded-2xl apple-glass transition-all duration-500 ${
-              isScrolled
+            className={`max-w-7xl mx-auto rounded-2xl apple-glass transition-colors duration-500 ${isScrolled
                 ? 'py-2.5 sm:py-3 px-4 sm:px-6 shadow-2xl'
                 : 'py-3 sm:py-3.5 px-4 sm:px-6 shadow-md'
-            }`}
+              }`}
           >
             <div className="flex items-center justify-between">
               {/* Logo / Monogram Lockup with Profile Pic Thumbnail */}
@@ -76,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   <img
                     src="/images/profile.jpg"
                     alt="Danial Habib"
-                    className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover object-top filter contrast-105"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
@@ -87,11 +86,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
                     <span className="font-display text-sm font-semibold tracking-tight text-[var(--theme-text-primary)] group-hover:text-[var(--theme-accent)] transition-colors">
-                      DANIAL HABIB
+                      Danial Habib
                     </span>
                   </div>
-                  <span className="text-[9px] font-mono uppercase tracking-widest text-[var(--theme-text-muted)]">
-                    INFORMATICS &bull; CREATOR
+                  <span className="text-[10px] text-[var(--theme-text-muted)]">
+                    Informatics and Creator
                   </span>
                 </div>
               </a>
@@ -105,14 +104,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                       key={link.id}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`px-3 py-1.5 rounded-xl font-mono text-[11px] tracking-wider transition-all flex items-center gap-1.5 ${
-                        isActive
+                      className={`px-3 py-1.5 rounded-xl text-xs transition-colors flex items-center gap-1.5 ${isActive
                           ? 'apple-glass-button-primary font-semibold shadow-md'
                           : 'text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] hover:bg-white/10'
-                      }`}
+                        }`}
                     >
-                      <span className={isActive ? 'text-[var(--theme-accent)]' : 'text-[var(--theme-text-muted)]'}>
-                        {link.code} //
+                      <span className={isActive ? 'text-[var(--theme-accent)] text-[11px]' : 'text-[var(--theme-text-muted)] text-[11px]'}>
+                        {link.code}
                       </span>
                       <span>{link.label}</span>
                     </a>
@@ -125,12 +123,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <button
                   type="button"
                   onClick={() => setIsCommandPaletteOpen(true)}
-                  className="apple-glass-subtle inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1.5 rounded-xl text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-all cursor-pointer"
+                  className="apple-glass-subtle inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-xl text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-colors cursor-pointer"
                   aria-label="Buka Command Palette (Ctrl+K)"
                   title="Buka Command Palette (Ctrl+K)"
                 >
-                  <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[9px] font-mono border border-black/10">
+                  <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[10px] font-mono border border-black/10">
                     Ctrl K
                   </kbd>
                 </button>
@@ -138,110 +136,109 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <button
                   type="button"
                   onClick={() => setIsResumeOpen(true)}
-                  className="apple-glass-subtle inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider px-3.5 py-1.5 rounded-xl text-[var(--theme-text-primary)] transition-all font-medium cursor-pointer"
+                  className="apple-glass-subtle inline-flex items-center gap-1.5 text-xs px-3.5 py-1.5 rounded-xl text-[var(--theme-text-primary)] transition-colors font-medium cursor-pointer"
                 >
-                  <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>RESUME [CV]</span>
+                  <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>Resume [CV]</span>
                 </button>
 
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="apple-glass-button-primary inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider px-3.5 py-1.5 rounded-xl transition-all shadow-md font-medium"
+                  className="apple-glass-button-primary inline-flex items-center gap-1.5 text-xs px-3.5 py-1.5 rounded-xl transition-colors shadow-md font-medium"
                 >
-                  <span>GET IN TOUCH</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <span>Get in Touch</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                 </a>
               </div>
 
-            {/* Mobile Menu Toggle Button */}
-            <button
-              id="mobile-menu-toggle"
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[var(--theme-text-primary)] hover:bg-white/10 rounded-xl border border-[var(--theme-border-hairline)] transition-colors focus:outline-none"
-              aria-label={mobileMenuOpen ? 'Tutup navigasi' : 'Buka navigasi'}
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-
-          {/* Mobile Dropdown Menu Drawer */}
-          <AnimatePresence>
-            {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25, ease: 'easeInOut' }}
-                className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border-hairline)] flex flex-col gap-1 pb-2"
+              {/* Mobile Menu Toggle Button */}
+              <button
+                id="mobile-menu-toggle"
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 text-[var(--theme-text-primary)] hover:bg-white/10 rounded-xl border border-[var(--theme-border-hairline)] transition-colors focus:outline-none"
+                aria-label={mobileMenuOpen ? 'Tutup navigasi' : 'Buka navigasi'}
+                aria-expanded={mobileMenuOpen}
               >
-                {navLinks.map((link) => (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="px-3 py-2 text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] hover:bg-white/10 rounded-xl font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-between"
-                  >
-                    <span>{link.label}</span>
-                    <span className="text-[10px] text-[var(--theme-text-muted)]">{link.code} //</span>
-                  </a>
-                ))}
-                
-                <div className="pt-2 mt-1 border-t border-[var(--theme-border-hairline)] flex flex-col gap-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setIsCommandPaletteOpen(true);
-                    }}
-                    className="apple-glass-subtle flex items-center justify-between text-xs font-mono py-2 px-4 rounded-xl text-[var(--theme-text-primary)] font-medium text-left cursor-pointer"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                      <span>Cari / Command Palette</span>
-                    </div>
-                    <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[9px] font-mono">Ctrl K</kbd>
-                  </button>
+                {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
+              </button>
+            </div>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setIsResumeOpen(true);
-                    }}
-                    className="apple-glass-subtle text-center text-xs font-mono uppercase tracking-wider py-2 px-4 rounded-xl font-medium cursor-pointer flex items-center justify-center gap-1.5"
-                  >
-                    <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                    <span>Lihat Resume [CV]</span>
-                  </button>
+            {/* Mobile Dropdown Menu Drawer */}
+            <AnimatePresence>
+              {mobileMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border-hairline)] flex flex-col gap-1 pb-2"
+                >
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="px-3 py-2 text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] hover:bg-white/10 rounded-xl text-xs transition-colors flex items-center justify-between"
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-[11px] text-[var(--theme-text-muted)]">{link.code}</span>
+                    </a>
+                  ))}
 
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, '#contact')}
-                    className="apple-glass-button-primary text-center text-xs font-mono uppercase tracking-wider py-2.5 px-4 rounded-xl font-semibold shadow-md"
-                  >
-                    Hubungi Saya &rarr;
-                  </a>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <div className="pt-2 mt-1 border-t border-[var(--theme-border-hairline)] flex flex-col gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIsCommandPaletteOpen(true);
+                      }}
+                      className="apple-glass-subtle flex items-center justify-between text-xs py-2 px-4 rounded-xl text-[var(--theme-text-primary)] font-medium text-left cursor-pointer whitespace-nowrap"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Search className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                        <span>Command Palette</span>
+                      </div>
+                      <kbd className="px-1.5 py-0.5 rounded bg-black/10 text-[10px] font-mono">Ctrl K</kbd>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIsResumeOpen(true);
+                      }}
+                      className="apple-glass-subtle text-center text-xs py-2 px-4 rounded-xl font-medium cursor-pointer flex items-center justify-center gap-1.5"
+                    >
+                      <Download className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                      <span>Lihat Resume [CV]</span>
+                    </button>
+
+                    <a
+                      href="#contact"
+                      onClick={(e) => handleNavClick(e, '#contact')}
+                      className="apple-glass-button-primary text-center text-xs py-2.5 px-4 rounded-xl font-semibold shadow-md"
+                    >
+                      Hubungi Saya
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    {/* Resume Modal */}
-    <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+      {/* Resume Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
 
-    {/* Command Palette (Ctrl+K) */}
-    <CommandPalette
-      isOpen={isCommandPaletteOpen}
-      onClose={() => setIsCommandPaletteOpen(false)}
-      onOpenResume={() => setIsResumeOpen(true)}
-    />
-  </>
+      {/* Command Palette (Ctrl+K) */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+        onOpenResume={() => setIsResumeOpen(true)}
+      />
+    </>
   );
 };
-

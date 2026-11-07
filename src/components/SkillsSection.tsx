@@ -19,11 +19,11 @@ export const SkillsSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6 border-b border-[var(--theme-border-hairline)] pb-4 sm:pb-5"
         >
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
+            <div className="flex items-center gap-2 text-xs text-[var(--theme-accent)] font-medium">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>CAPABILITIES // TECH STACK &amp; SYSTEM ARCHITECTURE</span>
+              <span>Stack and System Architecture</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium tracking-tight text-[var(--theme-text-primary)]">
               System Architecture &amp; Stack
             </h2>
           </div>
@@ -43,21 +43,21 @@ export const SkillsSection: React.FC = () => {
               viewport={{ once: true, amount: 0.15 }}
               variants={staggeredCardVariants}
               whileHover={{ y: -3 }}
-              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300"
+              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-transform transition-shadow duration-300"
             >
               <div className="flex flex-col gap-4">
                 {/* Header Category */}
                 <div className="flex items-center justify-between pb-3 border-b border-[var(--theme-border-hairline)]">
                   <div className="flex items-center gap-2">
-                    {idx === 0 && <Code2 className="w-4 h-4 text-[var(--theme-accent)]" />}
-                    {idx === 1 && <Cpu className="w-4 h-4 text-[var(--theme-accent)]" />}
-                    {idx === 2 && <Layers className="w-4 h-4 text-[var(--theme-accent)]" />}
-                    <h3 className="font-display font-semibold text-base uppercase text-[var(--theme-text-primary)] tracking-tight">
+                    {idx === 0 && <Code2 className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />}
+                    {idx === 1 && <Cpu className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />}
+                    {idx === 2 && <Layers className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />}
+                    <h3 className="font-display font-semibold text-base text-[var(--theme-text-primary)] tracking-tight">
                       {category.categoryName}
                     </h3>
                   </div>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded-lg apple-glass-subtle text-[var(--theme-text-muted)] font-bold">
-                    0{idx + 1} //
+                  <span className="text-xs px-2 py-0.5 rounded-lg apple-glass-subtle text-[var(--theme-text-muted)] font-semibold">
+                    0{idx + 1}
                   </span>
                 </div>
 
@@ -71,8 +71,8 @@ export const SkillsSection: React.FC = () => {
                       transition={{ type: 'spring', stiffness: 450, damping: 20 }}
                       className="apple-glass-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-xl cursor-default shadow-xs"
                     >
-                      <TechIcon name={skill.iconKey} size={14} className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
-                      <span className="text-xs font-mono font-medium text-[var(--theme-text-primary)]">
+                      <TechIcon name={skill.iconKey} size={14} className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
+                      <span className="text-xs font-medium text-[var(--theme-text-primary)]">
                         {skill.name}
                       </span>
                     </motion.div>
@@ -82,8 +82,8 @@ export const SkillsSection: React.FC = () => {
 
               {/* Footnote description */}
               <div className="pt-3 border-t border-[var(--theme-border-hairline)] flex flex-col gap-1">
-                <span className="text-[9px] font-mono text-[var(--theme-text-muted)] uppercase tracking-wider">
-                  SPECIFICATION BRIEF
+                <span className="text-[11px] text-[var(--theme-text-muted)] font-medium">
+                  Specification Brief
                 </span>
                 <p className="text-xs text-[var(--theme-text-secondary)] font-normal leading-relaxed">
                   {category.description}

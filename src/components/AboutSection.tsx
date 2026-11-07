@@ -18,17 +18,17 @@ export const AboutSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6 border-b border-[var(--theme-border-hairline)] pb-4 sm:pb-5"
         >
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
+            <div className="flex items-center gap-2 text-xs text-[var(--theme-accent)] font-medium">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>BACKGROUND // PHILOSOPHY &amp; PROFILE</span>
+              <span>Background and Philosophy</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium tracking-tight text-[var(--theme-text-primary)]">
               Behind The Engineering
             </h2>
           </div>
-          <div className="flex items-center gap-2 text-xs font-mono text-[var(--theme-text-muted)]">
-            <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-            <span>YOGYAKARTA, ID &bull; UNIVERSITAS AHMAD DAHLAN</span>
+          <div className="flex items-center gap-2 text-xs text-[var(--theme-text-muted)] font-medium">
+            <MapPin className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+            <span>Yogyakarta, ID (Universitas Ahmad Dahlan)</span>
           </div>
         </motion.div>
 
@@ -51,13 +51,13 @@ export const AboutSection: React.FC = () => {
             >
               <div className="flex items-center gap-3 pb-3.5 border-b border-[var(--theme-border-hairline)]">
                 <div className="p-2.5 rounded-xl apple-glass-subtle">
-                  <GraduationCap className="w-5 h-5 text-[var(--theme-accent)]" />
+                  <GraduationCap className="w-5 h-5 text-[var(--theme-accent)]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-base font-display font-semibold uppercase text-[var(--theme-text-primary)] tracking-tight">
+                  <h3 className="text-base font-display font-semibold text-[var(--theme-text-primary)] tracking-tight">
                     Mahasiswa Teknik Informatika
                   </h3>
-                  <p className="text-xs font-mono text-[var(--theme-text-muted)]">
+                  <p className="text-xs text-[var(--theme-text-muted)]">
                     Universitas Ahmad Dahlan (UAD), Yogyakarta
                   </p>
                 </div>
@@ -79,8 +79,8 @@ export const AboutSection: React.FC = () => {
               transition={{ type: 'spring', stiffness: 350, damping: 25 }}
               className="p-6 sm:p-8 rounded-3xl apple-glass-subtle shadow-xl flex flex-col gap-3"
             >
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)] font-semibold">
-                PRINSIP PENGEMBANGAN // FILOSOFI KARYA
+              <span className="text-xs text-[var(--theme-accent)] font-semibold">
+                Prinsip Pengembangan dan Filosofi Karya
               </span>
               <blockquote className="text-sm sm:text-base text-[var(--theme-text-primary)] font-display font-medium leading-relaxed italic">
                 "{PERSONAL_INFO.aboutQuote}"
@@ -102,8 +102,8 @@ export const AboutSection: React.FC = () => {
               whileHover={{ y: -2 }}
               className="p-5 rounded-2xl apple-glass shadow-lg flex flex-col gap-2"
             >
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
-                <Code2 className="w-4 h-4 text-[var(--theme-accent)]" />
+              <div className="flex items-center gap-2 text-sm font-semibold text-[var(--theme-text-primary)]">
+                <Code2 className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />
                 <span>Web Platform Engineering</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">
@@ -121,8 +121,8 @@ export const AboutSection: React.FC = () => {
               whileHover={{ y: -2 }}
               className="p-5 rounded-2xl apple-glass shadow-lg flex flex-col gap-2"
             >
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
-                <Terminal className="w-4 h-4 text-[var(--theme-accent)]" />
+              <div className="flex items-center gap-2 text-sm font-semibold text-[var(--theme-text-primary)]">
+                <Terminal className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />
                 <span>Mobile Client Integration</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">
@@ -140,8 +140,8 @@ export const AboutSection: React.FC = () => {
               whileHover={{ y: -2 }}
               className="p-5 rounded-2xl apple-glass shadow-lg flex flex-col gap-2"
             >
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--theme-text-primary)] uppercase">
-                <Film className="w-4 h-4 text-[var(--theme-accent)]" />
+              <div className="flex items-center gap-2 text-sm font-semibold text-[var(--theme-text-primary)]">
+                <Film className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />
                 <span>Creative Motion &amp; Video</span>
               </div>
               <p className="text-xs text-[var(--theme-text-secondary)] leading-relaxed">

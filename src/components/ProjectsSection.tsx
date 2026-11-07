@@ -43,12 +43,12 @@ export const ProjectsSection: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6 border-b border-[var(--theme-border-hairline)] pb-4 sm:pb-5"
         >
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--theme-accent)]">
+            <div className="flex items-center gap-2 text-xs text-[var(--theme-accent)] font-medium">
               <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
-              <span>PORTFOLIO // SELECTED WORKS &amp; SYSTEMS</span>
+              <span>Selected Works and Systems</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium uppercase tracking-tight text-[var(--theme-text-primary)]">
-              Selected Systems &amp; Case Studies
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium tracking-tight text-[var(--theme-text-primary)]">
+              Selected Systems and Case Studies
             </h2>
           </div>
           <p className="max-w-md text-xs sm:text-sm text-[var(--theme-text-secondary)] font-normal leading-relaxed">
@@ -65,7 +65,7 @@ export const ProjectsSection: React.FC = () => {
                 key={cat.id}
                 type="button"
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl font-mono text-xs transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs transition-colors flex items-center gap-2 cursor-pointer ${
                   isActive
                     ? 'apple-glass-button-primary font-semibold shadow-md'
                     : 'apple-glass-pill text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]'
@@ -94,33 +94,33 @@ export const ProjectsSection: React.FC = () => {
             className="relative rounded-3xl apple-glass spotlight-card p-5 sm:p-8 shadow-2xl overflow-hidden group"
           >
           {/* Top Spec Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-[var(--theme-border-hairline)] font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-[var(--theme-border-hairline)] text-xs">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] font-bold text-[10px] uppercase tracking-wider border border-[var(--theme-border-subtle)]">
-                FEATURED CASE STUDY
+              <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] font-semibold text-[11px] border border-[var(--theme-border-subtle)]">
+                Featured Case Study
               </span>
-              <span className="text-[var(--theme-text-muted)] tracking-wider hidden sm:inline-block text-[11px]">
-                [ TANABREW // MULTI-PLATFORM ECOSYSTEM ]
+              <span className="text-[var(--theme-text-muted)] hidden sm:inline-block text-xs font-medium">
+                Tanabrew (Multi-platform Ecosystem)
               </span>
             </div>
-            <div className="flex items-center gap-1.5 text-[var(--theme-accent)] font-medium text-[11px]">
+            <div className="flex items-center gap-1.5 text-[var(--theme-accent)] font-medium text-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--theme-accent)]" />
-              <span>Web App &bull; Android &bull; iOS Client</span>
+              <span>Web App, Android, iOS Client</span>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 sm:gap-6 mt-4 sm:mt-5">
             
-            {/* 1. PROJECT HEADER & DESCRIPTION FIRST (TULISAN / PENJELASAN DULU) */}
+            {/* 1. PROJECT HEADER & DESCRIPTION FIRST */}
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-1">
-                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-[var(--theme-text-muted)]">
-                  Operasional Bisnis &bull; Roastery &amp; Inventory Management
+                <span className="text-xs text-[var(--theme-text-muted)]">
+                  Operasional Bisnis: Roastery and Inventory Management
                 </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-semibold text-[var(--theme-text-primary)] tracking-tight uppercase">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-semibold text-[var(--theme-text-primary)] tracking-tight">
                   Tanabrew Platform
                 </h3>
-                <p className="text-xs sm:text-sm font-mono text-[var(--theme-accent)] font-medium">
+                <p className="text-xs sm:text-sm text-[var(--theme-accent)] font-medium">
                   {tanabrew.tagline}
                 </p>
               </div>
@@ -134,29 +134,29 @@ export const ProjectsSection: React.FC = () => {
                 {tanabrew.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="apple-glass-pill inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-mono"
+                    className="apple-glass-pill inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs"
                   >
-                    <TechIcon name={tech} size={12} className="w-3 h-3 text-[var(--theme-accent)]" />
+                    <TechIcon name={tech} size={12} className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                     <span>{tech}</span>
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* 2. REAL UI SCREENSHOT MOCKUP (GAMBAR DI BAWAH PENJELASAN) */}
+            {/* 2. REAL UI SCREENSHOT MOCKUP */}
             <div className="w-full">
               <div className="relative rounded-2xl apple-glass-subtle p-3 sm:p-4 shadow-sm flex flex-col gap-3">
                 
                 {/* Simulated Browser Bar */}
-                <div className="flex items-center justify-between pb-2 border-b border-[var(--theme-border-hairline)] font-mono text-[10px] text-[var(--theme-text-muted)]">
+                <div className="flex items-center justify-between pb-2 border-b border-[var(--theme-border-hairline)] text-xs text-[var(--theme-text-muted)]">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#BA1A1A]/80 shrink-0" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#EAB308]/80 shrink-0" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E]/80 shrink-0" />
-                    <span className="ml-2 text-[var(--theme-text-secondary)] font-mono text-[10px] truncate">tanabrew.app/dashboard</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 shrink-0" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 shrink-0" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 shrink-0" />
+                    <span className="ml-2 text-[var(--theme-text-secondary)] text-xs truncate">tanabrew.app/dashboard</span>
                   </div>
-                  <span className="text-[var(--theme-accent)] font-semibold text-[9px] sm:text-[10px] font-mono shrink-0">
-                    v3.4.4 &bull; LIVE PRODUCTION
+                  <span className="text-[var(--theme-accent)] font-semibold text-xs shrink-0">
+                    v3.4.4 (Live Production)
                   </span>
                 </div>
 
@@ -170,13 +170,14 @@ export const ProjectsSection: React.FC = () => {
                   <img
                     src="/images/tanabrew-preview.webp"
                     alt="Tanabrew Dashboard System Preview"
-                    loading="lazy"
-                    className="w-full h-auto max-h-[380px] object-cover object-top filter brightness-95 group-hover/preview:brightness-100 transition-all duration-300"
+                    loading="eager"
+                    fetchPriority="high"
+                    className="w-full h-auto max-h-[380px] object-cover object-top filter brightness-95 group-hover/preview:brightness-100 transition-[filter] duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-3 sm:p-4 opacity-0 group-hover/preview:opacity-100 transition-opacity">
-                    <span className="text-xs font-mono text-white flex items-center gap-2">
-                      <Eye className="w-4 h-4 text-[var(--theme-accent)]" />
-                      Klik untuk melihat studi kasus &amp; detail arsitektur Tanabrew
+                    <span className="text-xs text-white flex items-center gap-2">
+                      <Eye className="w-4 h-4 text-[var(--theme-accent)]" aria-hidden="true" />
+                      Klik untuk melihat studi kasus dan detail arsitektur Tanabrew
                     </span>
                   </div>
                 </motion.div>
@@ -184,19 +185,19 @@ export const ProjectsSection: React.FC = () => {
                 {/* Architecture Modules Strip */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-0.5">
                   <div className="p-2.5 rounded-xl apple-glass border border-[var(--theme-border-hairline)] flex flex-col gap-0.5">
-                    <span className="text-[9px] font-mono text-[var(--theme-text-muted)] uppercase">Module 01</span>
+                    <span className="text-[10px] text-[var(--theme-text-muted)] font-medium">Module 01</span>
                     <span className="text-xs font-semibold text-[var(--theme-text-primary)]">Stock Ledger System</span>
-                    <span className="text-[10px] text-[var(--theme-text-secondary)]">Green &amp; Roasted Beans</span>
+                    <span className="text-[11px] text-[var(--theme-text-secondary)]">Green and Roasted Beans</span>
                   </div>
                   <div className="p-2.5 rounded-xl apple-glass border border-[var(--theme-border-hairline)] flex flex-col gap-0.5">
-                    <span className="text-[9px] font-mono text-[var(--theme-text-muted)] uppercase">Module 02</span>
+                    <span className="text-[10px] text-[var(--theme-text-muted)] font-medium">Module 02</span>
                     <span className="text-xs font-semibold text-[var(--theme-text-primary)]">Auto Invoice Engine</span>
-                    <span className="text-[10px] text-[var(--theme-text-secondary)]">Kasir &amp; Faktur Transaksi</span>
+                    <span className="text-[11px] text-[var(--theme-text-secondary)]">Kasir dan Faktur Transaksi</span>
                   </div>
                   <div className="p-2.5 rounded-xl apple-glass border border-[var(--theme-border-hairline)] flex flex-col gap-0.5">
-                    <span className="text-[9px] font-mono text-[var(--theme-text-muted)] uppercase">Module 03</span>
+                    <span className="text-[10px] text-[var(--theme-text-muted)] font-medium">Module 03</span>
                     <span className="text-xs font-semibold text-[var(--theme-text-primary)]">Multi-Device Client</span>
-                    <span className="text-[10px] text-[var(--theme-text-secondary)]">Web App + Mobile Sync</span>
+                    <span className="text-[11px] text-[var(--theme-text-secondary)]">Web App and Mobile Sync</span>
                   </div>
                 </div>
 
@@ -205,22 +206,22 @@ export const ProjectsSection: React.FC = () => {
 
             {/* 3. KEY FEATURES CHECKLIST & ACTION BUTTONS */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs text-[var(--theme-text-secondary)] flex-1">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-[var(--theme-text-secondary)] flex-1">
                 <div className="flex items-center gap-1.5 p-2 rounded-xl apple-glass-subtle">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
-                  <span className="text-[10px] sm:text-[11px]">Real-time Ledger</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium">Real-time Ledger</span>
                 </div>
                 <div className="flex items-center gap-1.5 p-2 rounded-xl apple-glass-subtle">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
-                  <span className="text-[10px] sm:text-[11px]">Auto Invoice</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium">Auto Invoice</span>
                 </div>
                 <div className="flex items-center gap-1.5 p-2 rounded-xl apple-glass-subtle">
-                  <Smartphone className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
-                  <span className="text-[10px] sm:text-[11px]">Android &amp; iOS</span>
+                  <Smartphone className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium">Android and iOS</span>
                 </div>
                 <div className="flex items-center gap-1.5 p-2 rounded-xl apple-glass-subtle">
-                  <Globe className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
-                  <span className="text-[10px] sm:text-[11px]">Cloud Firestore</span>
+                  <Globe className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium">Cloud Firestore</span>
                 </div>
               </div>
 
@@ -231,10 +232,10 @@ export const ProjectsSection: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={() => setSelectedProject(tanabrew)}
-                  className="apple-glass-button-primary px-4 py-2.5 rounded-xl font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-lg"
+                  className="apple-glass-button-primary px-4 py-2.5 rounded-xl font-semibold text-xs flex items-center gap-1.5 cursor-pointer shadow-lg"
                 >
                   <span>Baca Case Study</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                 </motion.button>
 
                 {tanabrew.instagramUrl && (
@@ -244,10 +245,10 @@ export const ProjectsSection: React.FC = () => {
                     href={tanabrew.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apple-glass-button-secondary px-3.5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider flex items-center gap-1.5"
+                    className="apple-glass-button-secondary px-3.5 py-2.5 rounded-xl text-xs font-medium flex items-center gap-1.5"
                   >
                     <span>Instagram</span>
-                    <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" />
+                    <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                   </motion.a>
                 )}
               </div>
@@ -268,24 +269,24 @@ export const ProjectsSection: React.FC = () => {
               viewport={{ once: true, amount: 0.12 }}
               variants={staggeredCardVariants}
               whileHover={{ y: -3 }}
-              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-all duration-300 group"
+              className="rounded-2xl apple-glass spotlight-card p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xl transition-transform transition-colors duration-300 group"
             >
               <div className="flex flex-col gap-3">
                 
                 {/* Meta Top Line */}
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] uppercase tracking-wider text-[10px] font-semibold border border-[var(--theme-border-subtle)]">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] text-xs font-medium border border-[var(--theme-border-subtle)]">
                     {project.category}
                   </span>
-                  <span className="text-[var(--theme-text-muted)] text-[10px]">{project.statusText}</span>
+                  <span className="text-[var(--theme-text-muted)] text-xs">{project.statusText}</span>
                 </div>
 
                 {/* 1. PROJECT TITLE & DESCRIPTION FIRST */}
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-lg sm:text-xl font-display font-semibold text-[var(--theme-text-primary)] tracking-tight uppercase group-hover:text-[var(--theme-accent)] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-display font-semibold text-[var(--theme-text-primary)] tracking-tight group-hover:text-[var(--theme-accent)] transition-colors">
                     {project.title}
                   </h3>
-                  <span className="text-xs font-mono text-[var(--theme-accent)]">
+                  <span className="text-xs text-[var(--theme-accent)] font-medium">
                     {project.tagline}
                   </span>
                   <p className="text-xs sm:text-sm text-[var(--theme-text-secondary)] leading-relaxed pt-1">
@@ -306,11 +307,11 @@ export const ProjectsSection: React.FC = () => {
                         src={project.imageSrc}
                         alt={project.title}
                         loading="lazy"
-                        className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 group-hover/img:scale-104 transition-all duration-300"
+                        className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 transition-[filter] duration-300"
                       />
-                      <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-md bg-black/80 backdrop-blur-md text-white font-mono text-[9px] flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity border border-white/20">
+                      <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-md bg-black/80 backdrop-blur-md text-white text-[10px] font-medium flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity border border-white/20">
                         <span>Live Preview</span>
-                        <ArrowUpRight className="w-3 h-3 text-[var(--theme-accent)]" />
+                        <ArrowUpRight className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                       </div>
                     </a>
                   ) : (
@@ -322,7 +323,7 @@ export const ProjectsSection: React.FC = () => {
                         src={project.imageSrc}
                         alt={project.title}
                         loading="lazy"
-                        className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 group-hover/img:scale-104 transition-all duration-300"
+                        className="w-full h-full object-cover object-top filter brightness-95 group-hover/img:brightness-100 transition-[filter] duration-300"
                       />
                     </div>
                   )
@@ -333,9 +334,9 @@ export const ProjectsSection: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="apple-glass-pill inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg text-[10px] font-mono"
+                      className="apple-glass-pill inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg text-xs"
                     >
-                      <TechIcon name={tech} size={11} className="w-3 h-3 text-[var(--theme-accent)]" />
+                      <TechIcon name={tech} size={11} className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                       <span>{tech}</span>
                     </span>
                   ))}
@@ -347,10 +348,10 @@ export const ProjectsSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-[var(--theme-text-primary)] hover:text-[var(--theme-accent)] font-semibold transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs text-[var(--theme-text-primary)] hover:text-[var(--theme-accent)] font-semibold transition-colors cursor-pointer"
                 >
                   <span>Lihat Detail</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -359,10 +360,10 @@ export const ProjectsSection: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="apple-glass-button-primary inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-lg shadow-sm"
+                      className="apple-glass-button-primary inline-flex items-center gap-1 text-xs px-3 py-1 rounded-lg shadow-sm font-medium"
                     >
                       <span>Demo</span>
-                      <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" />
+                      <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                     </a>
                   )}
 
@@ -371,10 +372,10 @@ export const ProjectsSection: React.FC = () => {
                       href={project.instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="apple-glass-button-secondary inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-lg"
+                      className="apple-glass-button-secondary inline-flex items-center gap-1 text-xs px-3 py-1 rounded-lg font-medium"
                     >
                       <span>Instagram</span>
-                      <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" />
+                      <ExternalLink className="w-3 h-3 text-[var(--theme-accent)]" aria-hidden="true" />
                     </a>
                   )}
                 </div>
@@ -409,15 +410,15 @@ export const ProjectsSection: React.FC = () => {
               <div className="flex items-start justify-between border-b border-[var(--theme-border-hairline)] pb-3.5">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] font-mono text-[10px] font-bold uppercase border border-[var(--theme-border-subtle)]">
+                    <span className="px-2.5 py-0.5 rounded-md bg-[var(--theme-accent-light)] text-[var(--theme-badge-text)] text-xs font-semibold border border-[var(--theme-border-subtle)]">
                       {selectedProject.category}
                     </span>
-                    <span className="text-xs font-mono text-[var(--theme-text-muted)]">{selectedProject.statusText}</span>
+                    <span className="text-xs text-[var(--theme-text-muted)]">{selectedProject.statusText}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[var(--theme-text-primary)] uppercase">
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[var(--theme-text-primary)]">
                     {selectedProject.title}
                   </h3>
-                  <span className="text-xs font-mono text-[var(--theme-accent)]">{selectedProject.tagline}</span>
+                  <span className="text-xs text-[var(--theme-accent)] font-medium">{selectedProject.tagline}</span>
                 </div>
                 <button
                   type="button"
@@ -425,7 +426,7 @@ export const ProjectsSection: React.FC = () => {
                   className="p-1.5 rounded-xl hover:bg-white/10 text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-colors"
                   aria-label="Tutup"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5" aria-hidden="true" />
                 </button>
               </div>
 
@@ -435,13 +436,13 @@ export const ProjectsSection: React.FC = () => {
 
                 {selectedProject.detailedCaseStudy?.keyFeatures && (
                   <div className="flex flex-col gap-2 pt-1">
-                    <span className="font-mono text-xs uppercase tracking-wider text-[var(--theme-text-primary)] font-semibold">
-                      Fitur &amp; Arsitektur Unggulan:
+                    <span className="text-xs text-[var(--theme-text-primary)] font-semibold">
+                      Fitur dan Arsitektur Unggulan:
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {selectedProject.detailedCaseStudy.keyFeatures.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 p-2.5 rounded-xl apple-glass-subtle text-xs font-mono">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0 mt-0.5" />
+                        <div key={i} className="flex items-start gap-2 p-2.5 rounded-xl apple-glass-subtle text-xs">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0 mt-0.5" aria-hidden="true" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -451,16 +452,16 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Tech stack */}
                 <div className="flex flex-col gap-2 pt-1">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[var(--theme-text-primary)] font-semibold">
+                  <span className="text-xs text-[var(--theme-text-primary)] font-semibold">
                     Teknologi yang Digunakan:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono"
+                        className="apple-glass-pill inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs"
                       >
-                        <TechIcon name={tech} size={13} className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                        <TechIcon name={tech} size={13} className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                         <span>{tech}</span>
                       </span>
                     ))}
@@ -473,7 +474,7 @@ export const ProjectsSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="apple-glass-button-secondary px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold"
+                  className="apple-glass-button-secondary px-4 py-2 rounded-xl text-xs font-semibold"
                 >
                   Tutup
                 </button>
@@ -482,10 +483,10 @@ export const ProjectsSection: React.FC = () => {
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apple-glass-button-primary inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold shadow-lg"
+                    className="apple-glass-button-primary inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold shadow-lg"
                   >
                     <span>Kunjungi Website</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
                   </a>
                 )}
               </div>

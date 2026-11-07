@@ -30,3 +30,8 @@ dist-ssr
 
 # Vercel
 .vercel
+
+# Agent & Hallmark internal artifacts
+.hallmark/
+.playwright-mcp/
+

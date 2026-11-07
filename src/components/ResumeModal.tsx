@@ -46,9 +46,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-[var(--theme-border-hairline)]">
-              <div className="flex items-center gap-2 font-mono text-xs text-[var(--theme-accent)] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]" />
-                <span>CURRICULUM VITAE // CREDENTIALS</span>
+              <div className="flex items-center gap-2 text-xs text-[var(--theme-accent)] font-semibold">
+                <span className="w-2 h-2 bg-[var(--theme-accent)] rounded-full" />
+                <span>Curriculum Vitae and Credentials</span>
               </div>
               <button
                 type="button"
@@ -56,7 +56,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 className="p-1.5 rounded-xl apple-glass-subtle text-[var(--theme-text-muted)] hover:text-[var(--theme-text-primary)] transition-colors cursor-pointer"
                 aria-label="Tutup jendela resume"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
@@ -73,11 +73,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <h3 className="text-xl font-display font-bold text-[var(--theme-text-primary)]">
                   Danial Habib Abdillah
                 </h3>
-                <p className="text-xs font-mono text-[var(--theme-accent)] font-medium">
-                  Informatics Student &bull; Digital Creator &bull; Video Specialist
+                <p className="text-xs text-[var(--theme-accent)] font-medium">
+                  Informatics Student, Digital Creator, Video Specialist
                 </p>
                 <div className="flex items-center gap-1.5 text-xs text-[var(--theme-text-muted)] pt-0.5">
-                  <GraduationCap className="w-3.5 h-3.5" />
+                  <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Teknik Informatika, Universitas Ahmad Dahlan (UAD)</span>
                 </div>
               </div>
@@ -85,20 +85,20 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
             {/* Quick Skills Summary */}
             <div className="rounded-2xl apple-glass-subtle p-4 flex flex-col gap-2.5">
-              <span className="font-mono text-[10px] uppercase text-[var(--theme-text-muted)] tracking-wider">
+              <span className="text-xs font-semibold text-[var(--theme-text-muted)]">
                 Ringkasan Kompetensi Teknis:
               </span>
               <ul className="text-xs text-[var(--theme-text-secondary)] space-y-1.5 font-normal leading-relaxed">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
                   <span><strong>Web Platform:</strong> React 19, TypeScript, Tailwind CSS, Vite</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
                   <span><strong>Mobile & Backend:</strong> Android & iOS Client, Firebase Firestore & Auth</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--theme-accent)] shrink-0" aria-hidden="true" />
                   <span><strong>Creative Media:</strong> 3+ Tahun CapCut Desktop, Pacing Video, Motion</span>
                 </li>
               </ul>
@@ -113,16 +113,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div className="flex flex-wrap items-center gap-3">
                 <a
                   href="mailto:danialgobel26@gmail.com?subject=Permintaan%20Dokumen%20Resume%20CV%20-%20Danial%20Habib"
-                  className="apple-glass-button-primary px-5 py-2.5 rounded-xl text-xs font-mono font-semibold flex items-center gap-2 shadow-lg"
+                  className="apple-glass-button-primary px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 shadow-lg whitespace-nowrap"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-                  <span>Minta Berkas CV Lengkap via Email</span>
+                  <Mail className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+                  <span>Minta CV via Email</span>
                 </a>
 
                 <button
                   type="button"
                   onClick={onClose}
-                  className="apple-glass-button-secondary px-4 py-2.5 rounded-xl text-xs font-mono font-semibold"
+                  className="apple-glass-button-secondary px-4 py-2.5 rounded-xl text-xs font-semibold"
                 >
                   Tutup
                 </button>

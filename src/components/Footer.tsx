@@ -17,16 +17,16 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="py-12 px-4 sm:px-6 lg:px-8 apple-glass-subtle border-t border-[var(--theme-border-hairline)] font-mono text-xs text-[var(--theme-text-muted)] transition-colors duration-500">
+    <footer className="py-12 px-4 sm:px-6 lg:px-8 apple-glass-subtle border-t border-[var(--theme-border-hairline)] text-xs text-[var(--theme-text-muted)] transition-colors duration-500">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]" />
-            <span className="text-[var(--theme-text-primary)] font-display font-semibold uppercase">Danial Habib Abdillah</span>
+            <span className="text-[var(--theme-text-primary)] font-display font-medium">Danial Habib Abdillah</span>
           </div>
-          <span className="hidden sm:inline-block text-[var(--theme-text-muted)]">&bull;</span>
-          <span className="text-[var(--theme-text-muted)] text-[11px]">INFORMATICS STUDENT &amp; DIGITAL CREATOR</span>
+          <span className="hidden sm:inline-block text-[var(--theme-text-muted)]">/</span>
+          <span className="text-[var(--theme-text-muted)] text-[12px]">Informatics Student &amp; Digital Creator</span>
         </div>
 
         {/* Social Links Quick Access */}
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
             aria-label="GitHub @danialgobel"
           >
             <TechIcon name="github" size={14} className="w-3.5 h-3.5 text-[var(--theme-text-primary)]" />
-            <span className="text-[11px] font-mono">GITHUB</span>
+            <span className="text-xs font-medium">GitHub</span>
           </a>
 
           <a
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             aria-label="Instagram @danialgobell"
           >
             <TechIcon name="instagram" size={14} className="w-3.5 h-3.5 text-[var(--theme-text-primary)]" />
-            <span className="text-[11px] font-mono">INSTAGRAM</span>
+            <span className="text-xs font-medium">Instagram</span>
           </a>
 
           <a
@@ -61,13 +61,13 @@ export const Footer: React.FC = () => {
             aria-label="TikTok @danialgobelll"
           >
             <TechIcon name="tiktok" size={14} className="w-3.5 h-3.5 text-[var(--theme-text-primary)]" />
-            <span className="text-[11px] font-mono">TIKTOK</span>
+            <span className="text-xs font-medium">TikTok</span>
           </a>
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="text-[11px] text-[var(--theme-text-muted)]">
-            REACT 19 &bull; TS &bull; TAILWIND &bull; MOTION
+          <span className="text-xs text-[var(--theme-text-muted)]">
+            Built with React 19, TypeScript, Tailwind CSS, Motion
           </span>
 
           <div className="flex items-center gap-2">
@@ -78,8 +78,8 @@ export const Footer: React.FC = () => {
               aria-label="Salin tautan web portofolio"
               title="Salin Tautan Portofolio"
             >
-              <Share2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
-              <span className="text-[10px] font-mono uppercase hidden sm:inline">Bagikan</span>
+              <Share2 className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
+              <span className="text-xs font-medium hidden sm:inline">Bagikan</span>
             </button>
 
             <button
@@ -88,8 +88,8 @@ export const Footer: React.FC = () => {
               className="apple-glass-button-secondary p-2.5 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-md"
               aria-label="Kembali ke atas halaman"
             >
-              <span className="text-[10px] font-mono uppercase">Top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[var(--theme-accent)]" />
+              <span className="text-xs font-medium">Top</span>
+              <ArrowUp className="w-3.5 h-3.5 text-[var(--theme-accent)]" aria-hidden="true" />
             </button>
           </div>
         </div>

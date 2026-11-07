@@ -7,6 +7,7 @@ export const PERSONAL_INFO = {
   institution: 'Universitas Ahmad Dahlan (UAD), Yogyakarta',
   major: 'Teknik Informatika',
   location: 'Yogyakarta, Indonesia',
+  email: 'danialgobel26@gmail.com',
   availability: 'Open for Collaboration & Digital Projects',
   heroHeadline: 'Building digital products that transform raw ideas into functional, real-world experiences.',
   heroBio: 'Mahasiswa Teknik Informatika UAD yang menggabungkan software engineering, ekosistem multi-platform (Web, Android, iOS), otomasi, serta 3 tahun pengalaman video editing dengan CapCut Desktop.',

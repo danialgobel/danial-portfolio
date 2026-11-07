@@ -103,7 +103,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       }
     }, 3200);
 
-    // 6. Smooth Animation Loop (Interpolates current -> targetProgress smoothly)
+    // 7. Smooth Animation Loop
     let animationFrameId: number;
     const updateProgress = () => {
       const diff = targetProgressRef.current - currentProgressRef.current;
@@ -123,7 +123,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             setIsDone(true);
             setTimeout(() => {
               onComplete();
-            }, 850); // Exact duration of the luxury curtain slide-up
+            }, 850);
           }
         }, 220);
         return;
@@ -158,42 +158,40 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             y: '-100%',
             transition: {
               duration: 0.85,
-              ease: [0.77, 0, 0.175, 1], // Smooth luxury curtain slide up like version 1
+              ease: [0.77, 0, 0.175, 1],
             },
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-[#F8FAFC] select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-slate-50 select-none overflow-hidden"
           style={{ willChange: 'transform' }}
         >
           {/* Subtle Ambient Radial Highlight on Light Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.06)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 preloader-glow pointer-events-none" />
 
-          {/* =================================================================
-              BROWSER / APP WINDOW MOCKUP CONTAINER (Clean White Theme)
-              ================================================================= */}
-          <div className="relative w-full max-w-2xl rounded-2xl sm:rounded-3xl bg-[#F1F5F9] border border-slate-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
+          {/* Container */}
+          <div className="relative w-full max-w-2xl rounded-2xl sm:rounded-3xl bg-slate-100 border border-slate-200/90 preloader-window-shadow overflow-hidden flex flex-col">
             
-            {/* 1. macOS Window Header Bar (Light Alabaster) */}
-            <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-slate-200/80 bg-[#FAFAFC]">
+            {/* 1. macOS Window Header Bar */}
+            <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-slate-200/80 bg-slate-50">
               {/* Traffic Light Dots */}
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs inline-block" />
-                <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs inline-block" />
-                <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs inline-block" />
+                <span className="w-3 h-3 rounded-full bg-rose-500 border border-black/10 shadow-xs inline-block" />
+                <span className="w-3 h-3 rounded-full bg-amber-400 border border-black/10 shadow-xs inline-block" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500 border border-black/10 shadow-xs inline-block" />
               </div>
 
-              {/* Window Address / Title Mockup */}
-              <div className="px-3 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-slate-500 shadow-xs">
+              {/* Window Address Mockup */}
+              <div className="px-3 py-0.5 rounded-md bg-white border border-slate-200 text-xs font-mono text-slate-500 shadow-xs">
                 danialhabib.dev
               </div>
 
-              {/* Right Spacer for balance */}
+              {/* Right Spacer */}
               <div className="w-12" />
             </div>
 
-            {/* 2. Window Content Area with Frosted Preview Behind Dialog */}
-            <div className="relative min-h-[360px] sm:min-h-[420px] p-6 sm:p-10 flex items-center justify-center overflow-hidden bg-[#F8FAFC]">
+            {/* 2. Window Content Area */}
+            <div className="relative min-h-[360px] sm:min-h-[420px] p-6 sm:p-10 flex items-center justify-center overflow-hidden bg-slate-50">
               
-              {/* Background Mockup (Sales Analytics / Workspace blurred preview like screenshot) */}
+              {/* Background Mockup */}
               <div className="absolute inset-0 p-8 flex flex-col gap-6 filter blur-[5px] opacity-40 pointer-events-none select-none">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -210,20 +208,20 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                 <div className="h-28 rounded-xl bg-white border border-slate-200/60 shadow-xs" />
               </div>
 
-              {/* 3. Floating Modal Dialog Card (Pure White with Crisp Drop Shadow) */}
+              {/* 3. Floating Modal Dialog Card */}
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.35, delay: 0.1 }}
-                className="relative z-10 w-full max-w-[340px] sm:max-w-[360px] rounded-2xl bg-white border border-slate-200/80 shadow-[0_20px_45px_rgba(0,0,0,0.08)] p-6 sm:p-7 flex flex-col gap-6"
+                className="relative z-10 w-full max-w-[340px] sm:max-w-[360px] rounded-2xl bg-white border border-slate-200/80 preloader-modal-shadow p-6 sm:p-7 flex flex-col gap-6"
               >
-                {/* Modal Upper: Circular Donut Progress Ring + Shimmer Bars */}
+                {/* Modal Upper: Circular Donut Progress Ring */}
                 <div className="flex items-center gap-6">
                   
                   {/* Circular Donut Progress */}
                   <div className="relative shrink-0 w-[100px] h-[100px] flex items-center justify-center">
-                    <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
-                      {/* Background Inactive Track Ring (Soft Light Gray) */}
+                    <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 100 100" aria-hidden="true">
+                      {/* Background Inactive Track Ring */}
                       <circle
                         cx="50"
                         cy="50"
@@ -232,13 +230,13 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                         stroke="#E2E8F0"
                         strokeWidth="9"
                       />
-                      {/* Active Progress Arc (Royal Purple / Indigo as in reference) */}
+                      {/* Active Progress Arc */}
                       <circle
                         cx="50"
                         cy="50"
                         r={radius}
                         fill="none"
-                        stroke="#6366F1"
+                        stroke="#EA580C"
                         strokeWidth="9"
                         strokeDasharray={circumference}
                         strokeDashoffset={strokeDashoffset}
@@ -247,7 +245,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                       />
                     </svg>
 
-                    {/* Percentage Display at the Center of Donut */}
+                    {/* Percentage Display */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="font-sans font-extrabold text-2xl text-slate-800 tabular-nums tracking-tight">
                         {progress}%
@@ -255,18 +253,18 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                     </div>
                   </div>
 
-                  {/* Right Side: Shimmer Placeholder Bars (as seen in screenshot) */}
+                  {/* Right Side: Shimmer Placeholder Bars */}
                   <div className="flex flex-col gap-2.5 flex-1">
                     <div className="h-3.5 w-24 sm:w-28 rounded-full bg-slate-200 animate-pulse" />
                     <div className="h-2.5 w-16 sm:w-18 rounded-full bg-slate-100 animate-pulse" />
-                    <span className="text-[10px] font-mono text-slate-400 pt-1 truncate">
+                    <span className="text-xs text-slate-400 pt-1 truncate">
                       {statusText}
                     </span>
                   </div>
 
                 </div>
 
-                {/* Modal Lower: Action Buttons (Cancel / Loading...) */}
+                {/* Modal Lower: Action Buttons */}
                 <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
                   <button
                     type="button"
@@ -279,9 +277,9 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                   <button
                     type="button"
                     disabled
-                    className="px-5 py-2 rounded-xl text-xs font-semibold bg-[#6366F1] text-white shadow-md shadow-indigo-500/25 flex items-center gap-1.5 transition-all"
+                    className="px-5 py-2 rounded-xl text-xs font-semibold bg-[var(--theme-accent)] text-white shadow-md shadow-orange-500/25 flex items-center gap-1.5 opacity-90"
                   >
-                    <span>{progress >= 100 ? 'Siap' : 'Memuat...'}</span>
+                    <span>{progress >= 100 ? 'Siap' : 'Memuat…'}</span>
                   </button>
                 </div>
 
